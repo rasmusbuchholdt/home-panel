@@ -18,4 +18,11 @@ export class SpotifyComponent implements OnInit {
     this.spotifyService.togglePlayPause().subscribe();
   }
 
+  next(): void {
+    this.spotifyService.next().subscribe();
+  }
+
+  previous(): void {
+    this.spotifyService.previous().subscribe();
+  }
 }

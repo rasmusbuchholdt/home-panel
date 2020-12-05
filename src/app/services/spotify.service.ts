@@ -13,4 +13,12 @@ export class SpotifyService {
   public togglePlayPause(): Observable<any> {
     return this.http.get(`${environment.apiUrl}/api/spotify/toggle`);
   }
+
+  public next(): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/api/spotify/next`);
+  }
+
+  public previous(): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/api/spotify/previous`);
+  }
 }
