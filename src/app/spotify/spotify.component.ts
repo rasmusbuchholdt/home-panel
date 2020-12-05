@@ -14,6 +14,10 @@ export class SpotifyComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getAuthenticationUrl(): string {
+    return this.spotifyService.getAuthenticationUrl();
+  }
+
   togglePlayPause(): void {
     this.spotifyService.togglePlayPause().subscribe();
   }

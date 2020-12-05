@@ -10,6 +10,10 @@ export class SpotifyService {
 
   constructor(private http: HttpClient) { }
 
+  public getAuthenticationUrl(): string {
+    return `${environment.apiUrl}/auth/spotify`;
+  }
+
   public togglePlayPause(): Observable<any> {
     return this.http.get(`${environment.apiUrl}/api/spotify/toggle`);
   }
