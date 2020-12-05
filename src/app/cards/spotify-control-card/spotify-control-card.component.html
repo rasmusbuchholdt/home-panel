@@ -12,8 +12,8 @@
         <mat-icon>skip_previous</mat-icon>
       </button>
       <button mat-icon-button color="primary" (click)="togglePlayPause()">
-        <mat-icon *ngIf="playback.is_playing">pause</mat-icon>
-        <mat-icon *ngIf="!playback.is_playing">play_arrow</mat-icon>
+        <mat-icon *ngIf="isPlaying">pause</mat-icon>
+        <mat-icon *ngIf="!isPlaying">play_arrow</mat-icon>
       </button>
       <button mat-icon-button color="primary" (click)="next()">
         <mat-icon>skip_next</mat-icon>
