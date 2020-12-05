@@ -1,0 +1,41 @@
+.mat-card {
+  position: relative;
+  white-space: pre-line;
+  word-break: break-word;
+  min-height: 70px;
+  margin-bottom: 10px;
+}
+
+.mat-card-header-image {
+  background-size: cover;
+  background-image: url("/assets/images/light.svg");
+}
+
+.image-off{
+  background-size: cover;
+  background-image: url("/assets/images/light_off.svg");
+}
+
+.mat-card-header {
+  margin-bottom: -10px;
+
+  .mat-card-title {
+    font-size: 16px;
+  }
+}
+
+::ng-deep.mat-accent ::ng-deep.mat-slider-thumb-label-text {
+  font-size: 9px;
+  color: white;
+}
+
+::ng-deep.mat-accent ::ng-deep.mat-slider-track-fill,
+::ng-deep.mat-accent ::ng-deep.mat-slider-thumb,
+::ng-deep.mat-accent ::ng-deep.mat-slider-thumb-label {
+  background-color: #673ab7;
+}
+
+::ng-deep.mat-slider-min-value.mat-slider-thumb-label-showing ::ng-deep.mat-slider-thumb,
+::ng-deep.mat-slider-min-value.mat-slider-thumb-label-showing ::ng-deep.mat-slider-thumb-label {
+  background-color: #673ab7;
+}

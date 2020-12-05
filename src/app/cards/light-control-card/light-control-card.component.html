@@ -1,1 +1,13 @@
-<p>light-control-card works!</p>
+<mat-card *ngIf="light" class="mt-3">
+  <mat-card-header>
+    <div mat-card-avatar [ngClass]="isOn ? 'mat-card-header-image' : 'image-off'"></div>
+    <mat-card-title>{{light.name}}</mat-card-title>
+    <mat-card-subtitle>
+      {{status}}
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-actions>
+    <button [disabled]="!isSwitchOn" mat-button>Edit</button>
+    <button [disabled]="!isSwitchOn" mat-button (click)="toggleLight()">Toggle</button>
+  </mat-card-actions>
+</mat-card>
