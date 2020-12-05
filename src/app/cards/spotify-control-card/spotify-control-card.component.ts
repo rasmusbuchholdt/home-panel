@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SpotifyPlayback } from 'src/app/models/spotify-playback';
 import { SpotifyService } from 'src/app/services/spotify.service';
 
 @Component({
@@ -8,8 +9,8 @@ import { SpotifyService } from 'src/app/services/spotify.service';
 })
 export class SpotifyControlCardComponent implements OnInit {
 
-  public isPlaying = false;
-  public playback = "Fetching information";
+  currentSong = "Fetching information";
+  playback: SpotifyPlayback | undefined;
 
   constructor(private spotifyService: SpotifyService) { }
 
@@ -19,9 +20,13 @@ export class SpotifyControlCardComponent implements OnInit {
 
   getPlayback(): void {
     this.spotifyService.getPlayback().subscribe(playback => {
-      this.isPlaying = playback.is_playing;
-      this.playback =  playback.is_playing ? `${playback.item.artists[0].name} - ${playback.item.name}` : 'Not playing anything';
+      this.playback = playback;
+      this.currentSong = playback.is_playing ? `${playback.item.artists[0].name} - ${playback.item.name}` : 'Not playing anything';
     });
+  }
+
+  setVolume(amount: any) {
+    this.spotifyService.setVolume(+amount).subscribe();
   }
 
   togglePlayPause(): void {
@@ -40,5 +45,9 @@ export class SpotifyControlCardComponent implements OnInit {
     this.spotifyService.previous().toPromise().then(() => {
       this.getPlayback();
     });
+  }
+
+  formatVolumeLabel(value: number) {
+    return `${value}%`;
   }
 }

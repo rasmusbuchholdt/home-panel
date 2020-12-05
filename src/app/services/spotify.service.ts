@@ -25,6 +25,10 @@ export class SpotifyService {
     return this.http.get<SpotifyUser>(`${environment.apiUrl}/api/spotify/user`);
   }
 
+  public setVolume(amount: number) {
+    return this.http.get(`${environment.apiUrl}/api/spotify/volume/set/${amount}`);
+  }
+
   public togglePlayPause(): Observable<any> {
     return this.http.get(`${environment.apiUrl}/api/spotify/toggle`);
   }

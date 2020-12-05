@@ -2,13 +2,13 @@
   position: relative;
   white-space: pre-line;
   word-break: break-word;
-  width:100%;
+  width: 100%;
   min-height: 70px;
 }
 
 .mat-card-header-image {
   background-size: cover;
-  background-image: url('/assets/images/spotify.svg');
+  background-image: url("/assets/images/spotify.svg");
 }
 
 .mat-card-header {
@@ -17,4 +17,20 @@
   .mat-card-title {
     font-size: 16px;
   }
+}
+
+::ng-deep.mat-accent ::ng-deep.mat-slider-thumb-label-text {
+  font-size: 9px;
+  color: white;
+}
+
+::ng-deep.mat-accent ::ng-deep.mat-slider-track-fill,
+::ng-deep.mat-accent ::ng-deep.mat-slider-thumb,
+::ng-deep.mat-accent ::ng-deep.mat-slider-thumb-label {
+  background-color: #673ab7;
+}
+
+::ng-deep.mat-slider-min-value.mat-slider-thumb-label-showing ::ng-deep.mat-slider-thumb,
+::ng-deep.mat-slider-min-value.mat-slider-thumb-label-showing ::ng-deep.mat-slider-thumb-label {
+  background-color: #673ab7;
 }
