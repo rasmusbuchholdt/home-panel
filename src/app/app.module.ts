@@ -18,6 +18,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LightsComponent } from './lights/lights.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { SpotifyComponent } from './spotify/spotify.component';
+import { VoiceControlComponent } from './voice-control/voice-control.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { SpotifyComponent } from './spotify/spotify.component';
     DashboardComponent,
     NavigationComponent,
     SpotifyComponent,
-    LightsComponent
+    LightsComponent,
+    VoiceControlComponent
   ],
   imports: [
     BrowserModule,
