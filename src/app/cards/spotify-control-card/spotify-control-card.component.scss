@@ -1,0 +1,20 @@
+.mat-card {
+  position: relative;
+  white-space: pre-line;
+  word-break: break-word;
+  width:100%;
+  min-height: 70px;
+}
+
+.mat-card-header-image {
+  background-size: cover;
+  background-image: url('/assets/images/spotify.svg');
+}
+
+.mat-card-header {
+  margin-bottom: -10px;
+
+  .mat-card-title {
+    font-size: 16px;
+  }
+}

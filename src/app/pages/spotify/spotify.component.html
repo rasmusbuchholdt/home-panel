@@ -3,15 +3,6 @@
   <div>
     <a mat-stroked-button color="primary" href="{{getAuthenticationUrl()}}">Link Spotify</a>
   </div>
-  <div>
-    <button mat-icon-button color="primary" (click)="previous()">
-      <mat-icon>skip_previous</mat-icon>
-    </button>
-    <button mat-icon-button color="primary" (click)="togglePlayPause()">
-      <mat-icon>play_arrow</mat-icon>
-    </button>
-    <button mat-icon-button color="primary" (click)="next()">
-      <mat-icon>skip_next</mat-icon>
-    </button>
-  </div>
 </div>
+
+<app-spotify-control-card></app-spotify-control-card>
