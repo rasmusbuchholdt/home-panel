@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
+import { SpotifyPlayback } from '../models/spotify-playback';
 @Injectable({
   providedIn: 'root'
 })
@@ -14,6 +15,9 @@ export class SpotifyService {
     return `${environment.apiUrl}/auth/spotify`;
   }
 
+  public getPlayback(): Observable<SpotifyPlayback> {
+    return this.http.get<SpotifyPlayback>(`${environment.apiUrl}/api/spotify/playback`);
+  }
   public togglePlayPause(): Observable<any> {
     return this.http.get(`${environment.apiUrl}/api/spotify/toggle`);
   }

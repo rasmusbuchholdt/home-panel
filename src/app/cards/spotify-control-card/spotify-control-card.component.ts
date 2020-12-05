@@ -8,27 +8,37 @@ import { SpotifyService } from 'src/app/services/spotify.service';
 })
 export class SpotifyControlCardComponent implements OnInit {
 
-  public isPlaying = true;
+  public isPlaying = false;
+  public playback = "Fetching information";
 
   constructor(private spotifyService: SpotifyService) { }
 
   ngOnInit(): void {
+    this.getPlayback();
   }
 
-  getPlaybackText() {
-    return this.isPlaying ? `Currently playing: xxx` : "Not playing anything";
+  getPlayback(): void {
+    this.spotifyService.getPlayback().subscribe(playback => {
+      this.isPlaying = playback.is_playing;
+      this.playback =  playback.is_playing ? `${playback.item.artists[0].name} - ${playback.item.name}` : 'Not playing anything';
+    });
   }
 
   togglePlayPause(): void {
-    this.isPlaying = !this.isPlaying;
-    this.spotifyService.togglePlayPause().subscribe();
+    this.spotifyService.togglePlayPause().toPromise().then(() => {
+      this.getPlayback();
+    });
   }
 
   next(): void {
-    this.spotifyService.next().subscribe();
+    this.spotifyService.next().toPromise().then(() => {
+      this.getPlayback();
+    });
   }
 
   previous(): void {
-    this.spotifyService.previous().subscribe();
+    this.spotifyService.previous().toPromise().then(() => {
+      this.getPlayback();
+    });
   }
 }
