@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SpotifyUser } from 'src/app/models/spotify-user';
 
 import { SpotifyService } from '../../services/spotify.service';
 
@@ -9,24 +10,23 @@ import { SpotifyService } from '../../services/spotify.service';
 })
 export class SpotifyComponent implements OnInit {
 
+  user: SpotifyUser | undefined;
+
   constructor(private spotifyService: SpotifyService) { }
 
   ngOnInit(): void {
+    this.getUser();
+  }
+
+  getUser(): void {
+    this.spotifyService.getUser().subscribe(user => {
+      console.log(user);
+
+      this.user = user;
+    });
   }
 
   getAuthenticationUrl(): string {
     return this.spotifyService.getAuthenticationUrl();
-  }
-
-  togglePlayPause(): void {
-    this.spotifyService.togglePlayPause().subscribe();
-  }
-
-  next(): void {
-    this.spotifyService.next().subscribe();
-  }
-
-  previous(): void {
-    this.spotifyService.previous().subscribe();
   }
 }
