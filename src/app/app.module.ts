@@ -5,7 +5,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { FooterComponent } from './footer/footer.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
@@ -21,7 +20,6 @@ import { MatListModule } from '@angular/material/list';
   declarations: [
     AppComponent,
     DashboardComponent,
-    FooterComponent,
     NavigationComponent
   ],
   imports: [
