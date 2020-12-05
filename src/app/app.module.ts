@@ -1,4 +1,5 @@
 import { LayoutModule } from '@angular/cdk/layout';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -30,6 +31,7 @@ import { SpotifyComponent } from './spotify/spotify.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
@@ -40,7 +42,7 @@ import { SpotifyComponent } from './spotify/spotify.component';
     MatSidenavModule,
     MatListModule
   ],
-  providers: [],
+  providers: [HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
