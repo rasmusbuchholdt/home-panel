@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { LightsComponent } from './lights/lights.component';
-import { SpotifyComponent } from './spotify/spotify.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { LightsComponent } from './pages/lights/lights.component';
+import { SpotifyComponent } from './pages/spotify/spotify.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, pathMatch: 'full' },

@@ -14,11 +14,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { LightsComponent } from './lights/lights.component';
+import {
+  LightControlCardComponent,
+} from './cards/light-control-card/light-control-card.component';
+import {
+  SpotifyControlCardComponent,
+} from './cards/spotify-control-card/spotify-control-card.component';
+import {
+  VoiceControlCardComponent,
+} from './cards/voice-control-card/voice-control-card.component';
 import { NavigationComponent } from './navigation/navigation.component';
-import { SpotifyComponent } from './spotify/spotify.component';
-import { VoiceControlComponent } from './voice-control/voice-control.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { LightsComponent } from './pages/lights/lights.component';
+import { SpotifyComponent } from './pages/spotify/spotify.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +35,9 @@ import { VoiceControlComponent } from './voice-control/voice-control.component';
     NavigationComponent,
     SpotifyComponent,
     LightsComponent,
-    VoiceControlComponent
+    SpotifyControlCardComponent,
+    VoiceControlCardComponent,
+    LightControlCardComponent
   ],
   imports: [
     BrowserModule,
