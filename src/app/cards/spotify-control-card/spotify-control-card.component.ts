@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { delay, tap } from 'rxjs/operators';
-import { SpotifyPlayback } from 'src/app/models/spotify-playback';
 import { SpotifyService } from 'src/app/services/spotify.service';
 
 @Component({
@@ -12,7 +11,8 @@ export class SpotifyControlCardComponent implements OnInit {
 
   currentSong = "Fetching information";
   isPlaying = false;
-  playback: SpotifyPlayback | undefined;
+  currentVolume = 0;
+  isConnected = false;
 
   constructor(private spotifyService: SpotifyService) { }
 
@@ -22,8 +22,10 @@ export class SpotifyControlCardComponent implements OnInit {
 
   getPlayback(): void {
     this.spotifyService.getPlayback().subscribe(playback => {
-      this.playback = playback;
       this.isPlaying = playback.is_playing;
+      // TODO: Check if the Spotify API is actually up and running
+      this.isConnected = true;
+      this.currentVolume = playback.device.volume_percent;
       this.currentSong = this.isPlaying ? `${playback.item.artists[0].name} - ${playback.item.name}` : 'Not playing anything';
     });
   }

@@ -7,18 +7,17 @@
     </mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-    <div *ngIf="playback">
-      <button mat-icon-button color="primary" (click)="previous()">
-        <mat-icon>skip_previous</mat-icon>
-      </button>
-      <button mat-icon-button color="primary" (click)="togglePlayPause()">
-        <mat-icon *ngIf="isPlaying">pause</mat-icon>
-        <mat-icon *ngIf="!isPlaying">play_arrow</mat-icon>
-      </button>
-      <button mat-icon-button color="primary" (click)="next()">
-        <mat-icon>skip_next</mat-icon>
-      </button>
-      <mat-slider thumbLabel [displayWith]="formatVolumeLabel" (change)="setVolume($event.value)" [value]="playback.device.volume_percent" min="1" max="100"></mat-slider>
-    </div>
+    <button [disabled]="!isConnected" mat-icon-button color="primary" (click)="previous()">
+      <mat-icon>skip_previous</mat-icon>
+    </button>
+    <button [disabled]="!isConnected" mat-icon-button color="primary" (click)="togglePlayPause()">
+      <mat-icon *ngIf="isPlaying">pause</mat-icon>
+      <mat-icon *ngIf="!isPlaying">play_arrow</mat-icon>
+    </button>
+    <button [disabled]="!isConnected" mat-icon-button color="primary" (click)="next()">
+      <mat-icon>skip_next</mat-icon>
+    </button>
+    <mat-slider [disabled]="!isConnected" thumbLabel [displayWith]="formatVolumeLabel" (change)="setVolume($event.value)" [value]="currentVolume"
+      min="1" max="100"></mat-slider>
   </mat-card-content>
 </mat-card>
