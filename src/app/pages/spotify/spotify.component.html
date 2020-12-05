@@ -1,6 +1,6 @@
 <div class="grid-container">
-  <h1 *ngIf="!user" class="mat-h1">Spotify</h1>
-  <h1 *ngIf="user" class="mat-h1">Spotify ({{user.display_name}})</h1>
-  <a *ngIf="!user" mat-stroked-button color="primary" href="{{getAuthenticationUrl()}}">Link Spotify</a>
+  <h1 class="mat-h1">Spotify</h1>
+  <app-spotify-control-card></app-spotify-control-card>
+  <a mat-stroked-button color="primary" href="{{getAuthenticationUrl()}}">Link Spotify</a>
+  <h3 *ngIf="user" class="mat-h3">{{user.display_name}}</h3>
 </div>
-<app-spotify-control-card></app-spotify-control-card>
