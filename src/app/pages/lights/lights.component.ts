@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Light } from 'src/app/models/light';
+import { LightService } from 'src/app/services/light.service';
 
 @Component({
   selector: 'app-lights',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LightsComponent implements OnInit {
 
-  constructor() { }
+  lights: Light[] = [];
+
+  constructor(private lightService: LightService) { }
 
   ngOnInit(): void {
+    this.lightService.getLights().subscribe(lights => {
+      this.lights = lights;
+    });
   }
-
 }

@@ -1,3 +1,6 @@
 <div class="grid-container">
   <h1 class="mat-h1">Lights</h1>
+  <div *ngFor="let light of lights">
+    <app-light-control-card [light]="light"></app-light-control-card>
+  </div>
 </div>
