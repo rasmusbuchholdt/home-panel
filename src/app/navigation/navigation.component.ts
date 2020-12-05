@@ -1,5 +1,6 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, HostBinding } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 
@@ -19,10 +20,20 @@ export class NavigationComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver) { }
+  constructor(private breakpointObserver: BreakpointObserver, private cookieService: CookieService) {
+    this.getDarkModePreference();
+  }
+
+  getDarkModePreference() {
+    if (this.cookieService.check('dark_mode')){
+      this.darkMode = this.cookieService.get('dark_mode') === '1';
+      this.componentCssClass = this.darkMode ? 'dark-theme' : '';
+    }
+  }
 
   toggleDarkMode() {
-    this.componentCssClass = this.darkMode ? '' : 'dark-theme';
     this.darkMode = !this.darkMode;
+    this.componentCssClass = this.darkMode ? 'dark-theme' : '';
+    this.cookieService.set('dark_mode', this.darkMode ? '1' : '0');
   }
 }

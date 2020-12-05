@@ -12,6 +12,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CookieService } from 'ngx-cookie-service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -56,7 +57,10 @@ import { SpotifyComponent } from './pages/spotify/spotify.component';
     MatListModule,
     MatSliderModule
   ],
-  providers: [HttpClient],
+  providers: [
+    HttpClient,
+    CookieService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
