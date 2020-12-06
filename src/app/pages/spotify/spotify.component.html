@@ -1,5 +1,5 @@
 <div class="grid-container">
-  <h1 class="mat-h1">Spotify</h1>
+  <h1>Spotify</h1>
   <app-spotify-control-card></app-spotify-control-card>
   <a mat-flat-button color="primary" href="{{getAuthenticationUrl()}}">Link Spotify</a>
   <h3 *ngIf="user" class="mat-h3">{{user.display_name}}</h3>
