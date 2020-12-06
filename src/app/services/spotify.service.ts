@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
+import { SpotifyDevice } from '../models/spotify-device';
 import { SpotifyPlayback } from '../models/spotify-playback';
 import { SpotifyUser } from '../models/spotify-user';
 
@@ -25,6 +26,10 @@ export class SpotifyService {
     return this.http.get<SpotifyPlayback>(`${environment.apiUrl}/api/spotify/playback`);
   }
 
+  public getDevices(): Observable<SpotifyDevice[]> {
+    return this.http.get<SpotifyDevice[]>(`${environment.apiUrl}/api/spotify/devices`);
+  }
+
   public getUser(): Observable<SpotifyUser> {
     return this.http.get<SpotifyUser>(`${environment.apiUrl}/api/spotify/user`);
   }
@@ -43,5 +48,9 @@ export class SpotifyService {
 
   public previous(): Observable<any> {
     return this.http.get(`${environment.apiUrl}/api/spotify/previous`);
+  }
+
+  public transferPlayback(device: string): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/api/spotify/playback/${device}/set`);
   }
 }

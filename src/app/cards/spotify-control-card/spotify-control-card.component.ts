@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { delay, tap } from 'rxjs/operators';
+import { SpotifyDevice } from 'src/app/models/spotify-device';
 import { SpotifyService } from 'src/app/services/spotify.service';
 
 @Component({
@@ -9,6 +10,7 @@ import { SpotifyService } from 'src/app/services/spotify.service';
 })
 export class SpotifyControlCardComponent implements OnInit {
 
+  devices : SpotifyDevice[] = [];
   currentSong = "Fetching information";
   isPlaying = false;
   currentVolume = 0;
@@ -18,6 +20,14 @@ export class SpotifyControlCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPlaybackLoop();
+    this.getDevices();
+  }
+
+  getDevices(): void {
+    this.spotifyService.getDevices().subscribe(devices => {
+      console.log(devices);
+      this.devices = devices;
+    });
   }
 
   getPlaybackLoop(): void {
