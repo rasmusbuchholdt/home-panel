@@ -5,6 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -20,6 +21,12 @@ import {
   LightControlCardComponent,
 } from './cards/light-control-card/light-control-card.component';
 import {
+  PiholeControlCardComponent,
+} from './cards/pihole-control-card/pihole-control-card.component';
+import {
+  PiholeStatCardComponent,
+} from './cards/pihole-stat-card/pihole-stat-card.component';
+import {
   SpotifyControlCardComponent,
 } from './cards/spotify-control-card/spotify-control-card.component';
 import {
@@ -30,8 +37,6 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LightsComponent } from './pages/lights/lights.component';
 import { PiholeComponent } from './pages/pihole/pihole.component';
 import { SpotifyComponent } from './pages/spotify/spotify.component';
-import { PiholeControlCardComponent } from './cards/pihole-control-card/pihole-control-card.component';
-import { PiholeStatCardComponent } from './cards/pihole-stat-card/pihole-stat-card.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +61,7 @@ import { PiholeStatCardComponent } from './cards/pihole-stat-card/pihole-stat-ca
     MatCardModule,
     MatMenuModule,
     MatIconModule,
+    MatInputModule,
     MatButtonModule,
     LayoutModule,
     MatToolbarModule,
