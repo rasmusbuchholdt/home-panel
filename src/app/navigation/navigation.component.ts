@@ -25,7 +25,7 @@ export class NavigationComponent {
   }
 
   getDarkModePreference() {
-    if (this.cookieService.check('dark_mode')){
+    if (this.cookieService.check('dark_mode')) {
       this.darkMode = this.cookieService.get('dark_mode') === '1';
       this.componentCssClass = this.darkMode ? 'dark-theme' : '';
     }
