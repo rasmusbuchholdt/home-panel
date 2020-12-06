@@ -20,7 +20,7 @@ export class LightService {
     return this.http.get<Light>(`${environment.apiUrl}/api/light/${id}`);
   }
 
-  public toggleLight(id: number): Observable<Light> {
-    return this.http.get<Light>(`${environment.apiUrl}/api/light/${id}/toggle`);
+  public toggleLight(id: number): Observable<any> {
+    return this.http.get<any>(`${environment.apiUrl}/api/light/${id}/toggle`);
   }
 }
