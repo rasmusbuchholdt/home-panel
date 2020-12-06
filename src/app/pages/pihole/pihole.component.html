@@ -1,6 +1,6 @@
 <div class="grid-container">
   <h1>Pi-hole</h1>
-  <mat-grid-list gutterSize="20px" cols="4" rowHeight="150px">
+  <mat-grid-list *ngIf="isDesktop" gutterSize="20px" [cols]="4" rowHeight="150px">
     <div *ngFor="let stat of stats">
       <mat-grid-tile>
         <app-pihole-stat-card [stat]="stat"></app-pihole-stat-card>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DeviceDetectorService } from 'ngx-device-detector';
 import { PiholeStat } from 'src/app/models/pihole-stat';
 import { PiholeService } from 'src/app/services/pihole.service';
 
@@ -10,9 +11,11 @@ import { PiholeService } from 'src/app/services/pihole.service';
 export class PiholeComponent implements OnInit {
 
   stats: PiholeStat[] = [];
+  isDesktop = false;
 
-  constructor(private piholeService: PiholeService) {
+  constructor(private piholeService: PiholeService, private deviceService: DeviceDetectorService) {
     this.setupStats();
+    this.isDesktop = this.deviceService.isDesktop();
   }
 
   ngOnInit(): void { }
