@@ -14,6 +14,7 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
+      <a *ngIf="(isHandset$ | async) === false" class="logo" [routerLink]="['/']" href="/"><img src="/assets/images/logo.svg" width="30" height="30"></a>
       <span>Home Panel</span>
       <span class="spacer"></span>
       <button mat-icon-button (click)="toggleDarkMode()">
