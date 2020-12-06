@@ -1,6 +1,10 @@
 <div class="grid-container">
   <h1>Spotify</h1>
+  <h3 *ngIf="user">Currently logged in as {{user.display_name}}</h3>
+  <h3 *ngIf="!user">Currently not logged in</h3>
   <app-spotify-control-card></app-spotify-control-card>
-  <a mat-flat-button color="primary" href="{{getAuthenticationUrl()}}">Link Spotify</a>
-  <h3 *ngIf="user" class="mat-h3">{{user.display_name}}</h3>
+  <div class="button-group">
+    <a mat-flat-button color="primary" href="{{getAuthenticationUrl()}}">Link Spotify</a>
+    <a *ngIf="user" mat-flat-button color="primary" href="{{getDeauthenticationUrl()}}">Logout</a>
+  </div>
 </div>

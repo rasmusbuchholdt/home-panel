@@ -27,4 +27,8 @@ export class SpotifyComponent implements OnInit {
   getAuthenticationUrl(): string {
     return this.spotifyService.getAuthenticationUrl();
   }
+
+  getDeauthenticationUrl(): string {
+    return this.spotifyService.getDeauthenticationUrl();
+  }
 }

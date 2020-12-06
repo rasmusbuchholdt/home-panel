@@ -17,6 +17,10 @@ export class SpotifyService {
     return `${environment.apiUrl}/auth/spotify`;
   }
 
+  public getDeauthenticationUrl(): string {
+    return `${environment.apiUrl}/auth/spotify/logout`;
+  }
+
   public getPlayback(): Observable<SpotifyPlayback> {
     return this.http.get<SpotifyPlayback>(`${environment.apiUrl}/api/spotify/playback`);
   }
