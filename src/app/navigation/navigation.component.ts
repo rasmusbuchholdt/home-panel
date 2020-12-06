@@ -1,5 +1,6 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component, HostBinding } from '@angular/core';
+import { Component, HostBinding, ViewChild } from '@angular/core';
+import { MatDrawer } from '@angular/material/sidenav';
 import { CookieService } from 'ngx-cookie-service';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
@@ -11,6 +12,7 @@ import { map, shareReplay } from 'rxjs/operators';
 })
 export class NavigationComponent {
 
+  @ViewChild('drawer') drawer: MatDrawer | undefined;
   @HostBinding("class") componentCssClass: string | undefined;
   darkMode = false;
 
@@ -35,5 +37,11 @@ export class NavigationComponent {
     this.darkMode = !this.darkMode;
     this.componentCssClass = this.darkMode ? 'dark-theme' : '';
     this.cookieService.set('dark_mode', this.darkMode ? '1' : '0');
+  }
+
+  closeDrawer() {
+    if (this.drawer && this.drawer.mode == 'over') {
+      this.drawer.close();
+    }
   }
 }
