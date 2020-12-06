@@ -20,8 +20,6 @@ export class SpotifyComponent implements OnInit {
 
   getUser(): void {
     this.spotifyService.getUser().subscribe(user => {
-      console.log(user);
-
       this.user = user;
     });
   }
