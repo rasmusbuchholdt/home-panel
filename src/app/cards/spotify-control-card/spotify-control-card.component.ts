@@ -17,7 +17,12 @@ export class SpotifyControlCardComponent implements OnInit {
   constructor(private spotifyService: SpotifyService) { }
 
   ngOnInit(): void {
+    this.getPlaybackLoop();
+  }
+
+  getPlaybackLoop(): void {
     this.getPlayback();
+    setTimeout(() => this.getPlaybackLoop(), 5000);
   }
 
   getPlayback(): void {
