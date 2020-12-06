@@ -7,7 +7,7 @@
     </mat-card-subtitle>
   </mat-card-header>
   <mat-card-actions>
-    <button [disabled]="!isSwitchOn" mat-button>Edit</button>
-    <button [disabled]="!isSwitchOn" mat-button (click)="toggleLight()">Toggle</button>
+    <button mat-stroked-button [disabled]="!isSwitchOn" mat-button>Edit</button>
+    <button mat-stroked-button [disabled]="!isSwitchOn" mat-button (click)="toggleLight()">Toggle</button>
   </mat-card-actions>
 </mat-card>
