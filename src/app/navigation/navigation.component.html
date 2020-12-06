@@ -6,7 +6,7 @@
       <a mat-list-item (click)="closeDrawer()" [routerLink]="['/']">Dashboard</a>
       <a mat-list-item (click)="closeDrawer()" [routerLink]="['/spotify']">Spotify</a>
       <a mat-list-item (click)="closeDrawer()" [routerLink]="['/lights']">Lights</a>
-      <a *ngIf="pihole" mat-list-item href="/admin">Pi-hole</a>
+      <a mat-list-item (click)="closeDrawer()" [routerLink]="['/pihole']">Pi-hole</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

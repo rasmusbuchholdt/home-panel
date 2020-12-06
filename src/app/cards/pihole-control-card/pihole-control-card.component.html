@@ -1,0 +1,12 @@
+<mat-card *ngIf="piholeSummary">
+  <mat-card-header>
+    <div mat-card-avatar [ngClass]="isOn ? 'mat-card-header-image' : 'image-off'"></div>
+    <mat-card-title>Pi-Hole</mat-card-title>
+    <mat-card-subtitle>
+      Currenty {{isOn ? 'on' : 'off'}}
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-actions>
+    <button mat-button (click)="togglePihole()">Toggle</button>
+  </mat-card-actions>
+</mat-card>

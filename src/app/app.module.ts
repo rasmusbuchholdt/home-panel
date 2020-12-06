@@ -28,7 +28,10 @@ import {
 import { NavigationComponent } from './navigation/navigation.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LightsComponent } from './pages/lights/lights.component';
+import { PiholeComponent } from './pages/pihole/pihole.component';
 import { SpotifyComponent } from './pages/spotify/spotify.component';
+import { PiholeControlCardComponent } from './cards/pihole-control-card/pihole-control-card.component';
+import { PiholeStatCardComponent } from './cards/pihole-stat-card/pihole-stat-card.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,10 @@ import { SpotifyComponent } from './pages/spotify/spotify.component';
     LightsComponent,
     SpotifyControlCardComponent,
     VoiceControlCardComponent,
-    LightControlCardComponent
+    LightControlCardComponent,
+    PiholeComponent,
+    PiholeControlCardComponent,
+    PiholeStatCardComponent
   ],
   imports: [
     BrowserModule,

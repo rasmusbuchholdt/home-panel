@@ -4,7 +4,6 @@ import { MatDrawer } from '@angular/material/sidenav';
 import { CookieService } from 'ngx-cookie-service';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-navigation',
@@ -26,7 +25,6 @@ export class NavigationComponent {
 
   constructor(private breakpointObserver: BreakpointObserver, private cookieService: CookieService) {
     this.getDarkModePreference();
-    this.pihole = environment.pihole;
   }
 
   getDarkModePreference() {

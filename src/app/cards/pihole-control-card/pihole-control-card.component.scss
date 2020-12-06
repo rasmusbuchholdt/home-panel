@@ -1,0 +1,25 @@
+.mat-card {
+  position: relative;
+  white-space: pre-line;
+  word-break: break-word;
+  min-height: 70px;
+  margin-bottom: 10px;
+}
+
+.mat-card-header-image {
+  background-image: url("/assets/images/pihole.svg");
+  border-radius: 0;
+}
+
+.image-off{
+  background-image: url("/assets/images/pihole_off.svg");
+  border-radius: 0;
+}
+
+.mat-card-header {
+  margin-bottom: -10px;
+
+  .mat-card-title {
+    font-size: 16px;
+  }
+}

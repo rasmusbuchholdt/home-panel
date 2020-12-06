@@ -1,0 +1,11 @@
+.stat-card {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+
+.stat-card ::ng-deep .mat-card-header-text {
+  margin: 0px;
+}
