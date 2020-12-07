@@ -11,7 +11,7 @@
       <button class="delete-button" mat-icon-button color="primary" (click)="removeItem(item)">
         <mat-icon>delete</mat-icon>
       </button>
-      <app-widget [component]="item.type"></app-widget>
+      <app-widget [component]="item.type" [inputs]="item.inputs"></app-widget>
     </gridster-item>
   </gridster>
 </div>

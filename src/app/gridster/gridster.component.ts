@@ -5,8 +5,10 @@ import {
   GridsterItem,
   GridType,
 } from 'angular-gridster2';
+import { take } from 'rxjs/operators';
 
 import { Widget } from '../models/widget';
+import { LightService } from '../services/light.service';
 import { WidgetService } from '../services/widget.service';
 
 @Component({
@@ -34,7 +36,7 @@ export class GridsterComponent implements OnInit {
   widgets: Widget[] = [];
   locked: boolean = false;
 
-  constructor(private widgetService: WidgetService) {
+  constructor(private widgetService: WidgetService, private lightService: LightService) {
     this.getWidgets();
   }
 
@@ -50,7 +52,9 @@ export class GridsterComponent implements OnInit {
   }
 
   getWidgets() {
-    this.widgets = this.widgetService.getWidgets();
+    this.lightService.getLights().pipe(take(1)).subscribe(lights => {
+      this.widgets = this.widgetService.getWidgets(lights);
+    });
   }
 
   changedOptions() {
@@ -63,7 +67,9 @@ export class GridsterComponent implements OnInit {
   }
 
   addWidget(widget: Widget) {
-    const item: GridsterItem = { cols: 2, rows: 2, y: 0, x: 2, type: widget.type };
+    const item: GridsterItem = {
+      cols: 2, rows: 2, y: 0, x: 2, type: widget.type, inputs: widget.inputs
+    };
     this.dashboard.push(item);
   }
 }

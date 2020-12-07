@@ -1,11 +1,15 @@
 import { Injectable } from '@angular/core';
 
 import {
+  LightControlCardComponent,
+} from '../cards/light-control-card/light-control-card.component';
+import {
   PiholeControlCardComponent,
 } from '../cards/pihole-control-card/pihole-control-card.component';
 import {
   SpotifyControlCardComponent,
 } from '../cards/spotify-control-card/spotify-control-card.component';
+import { Light } from '../models/light';
 import { Widget } from '../models/widget';
 
 @Injectable({
@@ -15,9 +19,9 @@ export class WidgetService {
 
   constructor() { }
 
-  getWidgets(): Widget[] {
-    // TODO: Add support for light control components
-    return [
+  // TODO: Needs to be completely rewritten
+  getWidgets(lights: Light[]): Widget[] {
+    let widgets: Widget[] = [
       {
         name: "Spotify",
         icon: "radio",
@@ -28,6 +32,15 @@ export class WidgetService {
         icon: "router",
         type: PiholeControlCardComponent
       }
-    ]
+    ];
+    lights.forEach(light => {
+      widgets.push({
+        name: light.name,
+        icon: "light",
+        type: LightControlCardComponent,
+        inputs: { id: light.id }
+      })
+    });
+    return widgets;
   }
 }
