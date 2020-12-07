@@ -21,8 +21,9 @@ export class WidgetComponent implements OnInit {
 
   ngOnInit(): void { }
 
+  // TODO: Better handling for different component types
   componentCreated(compRef: ComponentRef<any>) {
-    if (compRef.componentType.name === 'LightControlCardComponent') {
+    if (this.inputs.id) {
       this.lightService.getLight(this.inputs.id).pipe(take(1)).subscribe(light => {
         compRef.instance.light = light;
         compRef.instance.getLightState(light);
