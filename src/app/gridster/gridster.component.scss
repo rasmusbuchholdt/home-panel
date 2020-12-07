@@ -1,0 +1,36 @@
+.gridster-item-content {
+  padding: 1em;
+}
+
+.container {
+  margin-top: -10px;
+  height: calc(100vh - 150px); /* you can use calc() function. */
+  margin: 0;
+  padding: 0;
+}
+
+gridster {
+  background-color: unset;
+  padding: 0 !important;
+  margin-top: 10px;
+}
+
+gridster-item {
+  background: unset;
+}
+
+.button-group a {
+  margin-right: 10px;
+}
+
+.delete-button {
+  position: absolute;
+  right: 0;
+  z-index: 1;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+::ng-deep.mat-menu-panel {
+  max-width: none !important;
+}

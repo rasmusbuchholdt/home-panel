@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="button-group">
+    <a mat-flat-button color="primary" [matMenuTriggerFor]="menu">Add Widget</a>
+    <button mat-icon-button color="primary" (click)="toggleLock()">
+      <mat-icon *ngIf="!locked">lock</mat-icon>
+      <mat-icon *ngIf="locked">lock_open</mat-icon>
+    </button>
+  </div>
+  <gridster *ngIf="options" [options]="options">
+    <gridster-item [item]="item" *ngFor="let item of dashboard">
+      <button class="delete-button" mat-icon-button color="primary" (click)="removeItem(item)">
+        <mat-icon>delete</mat-icon>
+      </button>
+      <app-widget [component]="item.type"></app-widget>
+    </gridster-item>
+  </gridster>
+</div>
+
+<mat-menu #menu="matMenu">
+  <div *ngFor="let widget of widgets">
+    <button mat-menu-item (click)="addWidget(widget)">
+      <mat-icon color="primary">{{widget.icon}}</mat-icon>
+      <span>{{widget.name}}</span>
+    </button>
+  </div>
+</mat-menu>

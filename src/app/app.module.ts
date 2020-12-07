@@ -14,6 +14,8 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { GridsterModule } from 'angular-gridster2';
+import { DynamicModule } from 'ng-dynamic-component';
 import { CookieService } from 'ngx-cookie-service';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -33,11 +35,13 @@ import {
 import {
   VoiceControlCardComponent,
 } from './cards/voice-control-card/voice-control-card.component';
+import { GridsterComponent } from './gridster/gridster.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LightsComponent } from './pages/lights/lights.component';
 import { PiholeComponent } from './pages/pihole/pihole.component';
 import { SpotifyComponent } from './pages/spotify/spotify.component';
+import { WidgetComponent } from './widget/widget.component';
 
 @NgModule({
   declarations: [
@@ -51,12 +55,16 @@ import { SpotifyComponent } from './pages/spotify/spotify.component';
     LightControlCardComponent,
     PiholeComponent,
     PiholeControlCardComponent,
-    PiholeStatCardComponent
+    PiholeStatCardComponent,
+    GridsterComponent,
+    WidgetComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    DynamicModule,
+    GridsterModule,
     HttpClientModule,
     MatGridListModule,
     MatBadgeModule,

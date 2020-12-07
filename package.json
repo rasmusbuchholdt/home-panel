@@ -21,6 +21,8 @@
     "@angular/platform-browser": "~11.0.3",
     "@angular/platform-browser-dynamic": "~11.0.3",
     "@angular/router": "~11.0.3",
+    "angular-gridster2": "^11.0.0",
+    "ng-dynamic-component": "^8.0.0",
     "ngx-cookie-service": "^11.0.2",
     "ngx-device-detector": "^2.0.4",
     "rxjs": "~6.6.0",

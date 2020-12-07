@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: '', component: DashboardComponent, pathMatch: 'full' },
   { path: 'spotify', component: SpotifyComponent, pathMatch: 'full' },
   { path: 'lights', component: LightsComponent, pathMatch: 'full' },
-  { path: 'pihole', component: PiholeComponent, pathMatch: 'full' },
+  { path: 'pihole', component: PiholeComponent, pathMatch: 'full' }
 ];
 
 @NgModule({
