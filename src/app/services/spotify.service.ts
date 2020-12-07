@@ -50,7 +50,7 @@ export class SpotifyService {
     return this.http.get(`${environment.apiUrl}/api/spotify/previous`);
   }
 
-  public transferPlayback(device: string): Observable<any> {
-    return this.http.get(`${environment.apiUrl}/api/spotify/playback/${device}/set`);
+  public transferPlayback(id: string): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/api/spotify/playback/${id}/set`);
   }
 }

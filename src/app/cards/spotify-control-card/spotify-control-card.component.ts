@@ -10,7 +10,7 @@ import { SpotifyService } from 'src/app/services/spotify.service';
 })
 export class SpotifyControlCardComponent implements OnInit {
 
-  devices : SpotifyDevice[] = [];
+  devices: SpotifyDevice[] = [];
   currentSong = "Fetching information";
   isPlaying = false;
   currentVolume = 0;
@@ -25,7 +25,6 @@ export class SpotifyControlCardComponent implements OnInit {
 
   getDevices(): void {
     this.spotifyService.getDevices().subscribe(devices => {
-      console.log(devices);
       this.devices = devices;
     });
   }
@@ -33,6 +32,24 @@ export class SpotifyControlCardComponent implements OnInit {
   getPlaybackLoop(): void {
     this.getPlayback();
     setTimeout(() => this.getPlaybackLoop(), 5000);
+  }
+
+  getDeviceIcon(type: string): string {
+    // https://developer.spotify.com/documentation/web-api/reference/player/get-a-users-available-devices/#device-types
+    if (['Computer', 'Tablet'].includes(type))
+      return 'computer';
+    else if (['Smartphone'].includes(type))
+      return 'smartphone';
+    else if (['TV'].includes(type))
+      return 'tv';
+    else
+      return 'speaker';
+  }
+
+  transferPlayback(id: string): void {
+    this.spotifyService.transferPlayback(id).pipe(
+      delay(500),
+    ).subscribe(() => this.getDevices());
   }
 
   getPlayback(): void {

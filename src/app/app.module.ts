@@ -1,6 +1,7 @@
 import { LayoutModule } from '@angular/cdk/layout';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { MatBadgeModule } from '@angular/material/badge';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -58,6 +59,7 @@ import { SpotifyComponent } from './pages/spotify/spotify.component';
     BrowserAnimationsModule,
     HttpClientModule,
     MatGridListModule,
+    MatBadgeModule,
     MatCardModule,
     MatMenuModule,
     MatIconModule,
