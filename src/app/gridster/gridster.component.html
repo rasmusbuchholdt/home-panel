@@ -2,8 +2,8 @@
   <div class="button-group">
     <a mat-flat-button color="primary" [matMenuTriggerFor]="menu">Add Widget</a>
     <button mat-icon-button color="primary" (click)="toggleLock()">
-      <mat-icon *ngIf="!locked">lock</mat-icon>
-      <mat-icon *ngIf="locked">lock_open</mat-icon>
+      <mat-icon *ngIf="locked">lock</mat-icon>
+      <mat-icon *ngIf="!locked">lock_open</mat-icon>
     </button>
   </div>
   <gridster *ngIf="options" [options]="options">

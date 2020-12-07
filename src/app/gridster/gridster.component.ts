@@ -44,9 +44,9 @@ export class GridsterComponent implements OnInit {
 
   toggleLock(): void {
     if (this.options.draggable && this.options.resizable) {
-      this.locked = !this.locked;
       this.options.draggable.enabled = this.locked;
       this.options.resizable.enabled = this.locked;
+      this.locked = !this.locked;
       this.changedOptions();
     }
   }
