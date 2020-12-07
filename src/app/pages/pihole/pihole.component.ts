@@ -13,6 +13,7 @@ export class PiholeComponent implements OnInit {
 
   stats: PiholeStat[] = [];
   isDesktop = false;
+  loop: any;
 
   constructor(private piholeService: PiholeService, private deviceService: DeviceDetectorService) {
     this.setupStats();
@@ -40,7 +41,11 @@ export class PiholeComponent implements OnInit {
         title: 'Domains on blocklist',
         body: summary.domains_being_blocked
       } as PiholeStat);
-      setTimeout(() => this.setupStats(), 5000);
+      this.loop = setTimeout(() => this.setupStats(), 5000);
     });
+  }
+
+  ngOnDestroy() {
+    clearInterval(this.loop);
   }
 }

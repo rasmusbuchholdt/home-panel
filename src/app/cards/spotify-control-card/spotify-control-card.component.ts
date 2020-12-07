@@ -15,6 +15,7 @@ export class SpotifyControlCardComponent implements OnInit {
   isPlaying = false;
   currentVolume = 0;
   isConnected = false;
+  loop: any
 
   constructor(private spotifyService: SpotifyService) { }
 
@@ -31,7 +32,7 @@ export class SpotifyControlCardComponent implements OnInit {
 
   getPlaybackLoop(): void {
     this.getPlayback();
-    setTimeout(() => this.getPlaybackLoop(), 5000);
+    this.loop = setTimeout(() => this.getPlaybackLoop(), 5000);
   }
 
   getDeviceIcon(type: string): string {
@@ -91,5 +92,9 @@ export class SpotifyControlCardComponent implements OnInit {
 
   formatVolumeLabel(value: number) {
     return `${value}%`;
+  }
+
+  ngOnDestroy() {
+    clearInterval(this.loop);
   }
 }
