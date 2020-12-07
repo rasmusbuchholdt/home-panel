@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { delay, tap } from 'rxjs/operators';
+import { delay, take, tap } from 'rxjs/operators';
 import { SpotifyDevice } from 'src/app/models/spotify-device';
 import { SpotifyService } from 'src/app/services/spotify.service';
 
@@ -24,7 +24,7 @@ export class SpotifyControlCardComponent implements OnInit {
   }
 
   getDevices(): void {
-    this.spotifyService.getDevices().subscribe(devices => {
+    this.spotifyService.getDevices().pipe(take(1)).subscribe(devices => {
       this.devices = devices;
     });
   }
@@ -48,12 +48,13 @@ export class SpotifyControlCardComponent implements OnInit {
 
   transferPlayback(id: string): void {
     this.spotifyService.transferPlayback(id).pipe(
-      delay(500),
+      take(1),
+      delay(1000),
     ).subscribe(() => this.getDevices());
   }
 
   getPlayback(): void {
-    this.spotifyService.getPlayback().subscribe(playback => {
+    this.spotifyService.getPlayback().pipe(take(1)).subscribe(playback => {
       this.isPlaying = playback.is_playing;
       // TODO: Check if the Spotify API is actually up and running
       this.isConnected = true;
@@ -63,11 +64,12 @@ export class SpotifyControlCardComponent implements OnInit {
   }
 
   setVolume(amount: any) {
-    this.spotifyService.setVolume(+amount).subscribe();
+    this.spotifyService.setVolume(+amount).pipe(take(1)).subscribe();
   }
 
   togglePlayPause(): void {
     this.spotifyService.togglePlayPause().pipe(
+      take(1),
       tap(() => this.isPlaying = !this.isPlaying),
       delay(500),
     ).subscribe(() => this.getPlayback());
@@ -75,12 +77,14 @@ export class SpotifyControlCardComponent implements OnInit {
 
   next(): void {
     this.spotifyService.next().pipe(
+      take(1),
       delay(500),
     ).subscribe(() => this.getPlayback());
   }
 
   previous(): void {
     this.spotifyService.previous().pipe(
+      take(1),
       delay(500),
     ).subscribe(() => this.getPlayback());
   }

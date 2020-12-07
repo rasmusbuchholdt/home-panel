@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { delay, tap } from 'rxjs/operators';
+import { delay, take, tap } from 'rxjs/operators';
 import { Light } from 'src/app/models/light';
 import { LightService } from 'src/app/services/light.service';
 
@@ -30,7 +30,7 @@ export class LightControlCardComponent implements OnInit {
 
   refreshLightState() {
     if (this.light) {
-      this.lightService.getLight(this.light.id).subscribe(light => {
+      this.lightService.getLight(this.light.id).pipe(take(1)).subscribe(light => {
         this.getLightState(light);
       });
     }
@@ -39,6 +39,7 @@ export class LightControlCardComponent implements OnInit {
   toggleLight() {
     if (this.light) {
       this.lightService.toggleLight(this.light.id).pipe(
+        take(1),
         tap(() => this.isOn = !this.isOn),
         delay(500),
       ).subscribe(() => this.refreshLightState());

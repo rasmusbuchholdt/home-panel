@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { take } from 'rxjs/operators';
 import { PiholeStat } from 'src/app/models/pihole-stat';
 import { PiholeService } from 'src/app/services/pihole.service';
 
@@ -21,7 +22,7 @@ export class PiholeComponent implements OnInit {
   ngOnInit(): void { }
 
   setupStats() {
-    this.piholeService.getSummary().subscribe(summary => {
+    this.piholeService.getSummary().pipe(take(1)).subscribe(summary => {
       this.stats = [];
       this.stats.push({
         title: `Total queries (${summary.unique_clients} clients)`,

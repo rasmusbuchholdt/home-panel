@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { tap } from 'rxjs/operators';
+import { take, tap } from 'rxjs/operators';
 import { PiholeSummary } from 'src/app/models/pihole-summary';
 import { PiholeService } from 'src/app/services/pihole.service';
 
@@ -20,7 +20,7 @@ export class PiholeControlCardComponent implements OnInit {
   }
 
   getSummary(): void {
-    this.piholeService.getSummary().subscribe(summary => {
+    this.piholeService.getSummary().pipe(take(1)).subscribe(summary => {
       this.piholeSummary = summary;
       this.isOn = summary.status === 'enabled';
     });
@@ -28,6 +28,7 @@ export class PiholeControlCardComponent implements OnInit {
 
   togglePihole(): void {
     this.piholeService.togglePihole().pipe(
+      take(1),
       tap(() => this.isOn = !this.isOn),
     ).subscribe();
   }

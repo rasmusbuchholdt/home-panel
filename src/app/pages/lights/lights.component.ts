@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { take } from 'rxjs/operators';
 import { Light } from 'src/app/models/light';
 import { LightService } from 'src/app/services/light.service';
 
@@ -18,16 +19,16 @@ export class LightsComponent implements OnInit {
   }
 
   private getLights(): void {
-    this.lightService.getLights().subscribe(lights => {
+    this.lightService.getLights().pipe(take(1)).subscribe(lights => {
       this.lights = lights;
     });
   }
 
   enableAll(): void {
-    this.lightService.getLights().subscribe(lights => {
+    this.lightService.getLights().pipe(take(1)).subscribe(lights => {
       lights.forEach(light => {
         if (!light.state.on && light.state.reachable) {
-          this.lightService.toggleLight(light.id).subscribe();
+          this.lightService.toggleLight(light.id).pipe(take(1)).subscribe();
           light.state.on = true;
         }
       });
@@ -36,10 +37,10 @@ export class LightsComponent implements OnInit {
   }
 
   disableAll(): void {
-    this.lightService.getLights().subscribe(lights => {
+    this.lightService.getLights().pipe(take(1)).subscribe(lights => {
       lights.forEach(light => {
         if (light.state.on && light.state.reachable) {
-          this.lightService.toggleLight(light.id).subscribe();
+          this.lightService.toggleLight(light.id).pipe(take(1)).subscribe();
           light.state.on = false;
         }
       });

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { take } from 'rxjs/operators';
 import { SpotifyUser } from 'src/app/models/spotify-user';
 
 import { SpotifyService } from '../../services/spotify.service';
@@ -19,7 +20,7 @@ export class SpotifyComponent implements OnInit {
   }
 
   getUser(): void {
-    this.spotifyService.getUser().subscribe(user => {
+    this.spotifyService.getUser().pipe(take(1)).subscribe(user => {
       this.user = user;
     });
   }
