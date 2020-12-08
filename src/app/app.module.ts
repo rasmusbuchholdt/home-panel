@@ -11,6 +11,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSliderModule } from '@angular/material/slider';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {
   BrowserModule,
@@ -35,6 +36,7 @@ import {
 import {
   PiholeStatCardComponent,
 } from './cards/pihole-stat-card/pihole-stat-card.component';
+import { SpacerCardComponent } from './cards/spacer-card/spacer-card.component';
 import {
   SpotifyControlCardComponent,
 } from './cards/spotify-control-card/spotify-control-card.component';
@@ -48,7 +50,6 @@ import { LightsComponent } from './pages/lights/lights.component';
 import { PiholeComponent } from './pages/pihole/pihole.component';
 import { SpotifyComponent } from './pages/spotify/spotify.component';
 import { WidgetComponent } from './widget/widget.component';
-import { SpacerCardComponent } from './cards/spacer-card/spacer-card.component';
 
 @Injectable()
 export class MyHammerConfig extends HammerGestureConfig {
@@ -91,6 +92,7 @@ export class MyHammerConfig extends HammerGestureConfig {
     MatIconModule,
     MatInputModule,
     MatButtonModule,
+    MatSnackBarModule,
     HammerModule,
     LayoutModule,
     MatToolbarModule,

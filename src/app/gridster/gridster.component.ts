@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import {
   DisplayGrid,
   GridsterConfig,
@@ -45,7 +46,8 @@ export class GridsterComponent implements OnInit {
   constructor(
     private widgetService: WidgetService,
     private lightService: LightService,
-    private dashboardService: DashboardService
+    private dashboardService: DashboardService,
+    private snackBar: MatSnackBar
   ) {
     this.getWidgets();
     this.loadDashboard();
@@ -91,5 +93,8 @@ export class GridsterComponent implements OnInit {
 
   saveDashboard(): void {
     this.dashboardService.saveDashboard(this.dashboard);
+    this.snackBar.open('Your dashboard has been saved to your local storage', undefined, {
+      duration: 2000
+    });
   }
 }
