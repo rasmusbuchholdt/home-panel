@@ -7,6 +7,9 @@ import {
 } from 'angular-gridster2';
 import { take } from 'rxjs/operators';
 
+import {
+  SpacerCardComponent,
+} from '../cards/spacer-card/spacer-card.component';
 import { Widget } from '../models/widget';
 import { LightService } from '../services/light.service';
 import { WidgetService } from '../services/widget.service';
@@ -26,13 +29,14 @@ export class GridsterComponent implements OnInit {
       enabled: true,
     },
     outerMargin: false,
-    displayGrid: DisplayGrid.None,
+    displayGrid: DisplayGrid.OnDragAndResize,
     gridType: GridType.Fit,
-    swap: false,
     pushItems: true,
-    maxCols: 4
+    margin: 5
   };
-  dashboard: Array<GridsterItem> = [];
+  dashboard: Array<GridsterItem> = [
+    { cols: 1, rows: 1, y: 4, x: 4, type: SpacerCardComponent },
+  ];
   widgets: Widget[] = [];
   locked: boolean = false;
 
@@ -68,7 +72,7 @@ export class GridsterComponent implements OnInit {
 
   addWidget(widget: Widget) {
     const item: GridsterItem = {
-      cols: 2, rows: 2, y: 0, x: 2, type: widget.type, inputs: widget.inputs
+      cols: 1, rows: 1, y: 0, x: 0, type: widget.type, inputs: widget.inputs
     };
     this.dashboard.push(item);
   }
