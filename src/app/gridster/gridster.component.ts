@@ -7,9 +7,6 @@ import {
 } from 'angular-gridster2';
 import { take } from 'rxjs/operators';
 
-import {
-  SpacerCardComponent,
-} from '../cards/spacer-card/spacer-card.component';
 import { Widget } from '../models/widget';
 import { LightService } from '../services/light.service';
 import { WidgetService } from '../services/widget.service';
@@ -23,19 +20,22 @@ export class GridsterComponent implements OnInit {
 
   options: GridsterConfig = {
     draggable: {
-      enabled: true,
+      enabled: true
     },
     resizable: {
-      enabled: true,
+      enabled: true
     },
     outerMargin: false,
     displayGrid: DisplayGrid.OnDragAndResize,
     gridType: GridType.Fit,
     pushItems: true,
-    margin: 5
+    margin: 5,
+    minCols: 5,
+    minRows: 3,
+    defaultItemCols: 3,
+    defaultItemRows: 3
   };
   dashboard: Array<GridsterItem> = [
-    { cols: 1, rows: 1, y: 4, x: 4, type: SpacerCardComponent },
   ];
   widgets: Widget[] = [];
   locked: boolean = false;

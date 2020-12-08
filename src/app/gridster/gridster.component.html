@@ -8,7 +8,7 @@
   </div>
   <gridster *ngIf="options" [options]="options">
     <gridster-item [item]="item" *ngFor="let item of dashboard">
-      <button class="delete-button" mat-icon-button color="primary" (click)="removeItem(item)">
+      <button *ngIf="!locked" class="delete-button" mat-icon-button color="primary" (click)="removeItem(item)">
         <mat-icon>delete</mat-icon>
       </button>
       <app-widget [component]="item.type" [inputs]="item.inputs"></app-widget>
