@@ -41,19 +41,25 @@ export class WidgetService {
         name: "Spotify",
         icon: "radio",
         type: SpotifyControlCardComponent,
-        typeName: 'Spotify'
+        typeName: 'Spotify',
+        cols: 2,
+        rows: 1
       },
       {
         name: "Pi-hole",
         icon: "router",
         type: PiholeControlCardComponent,
-        typeName: 'Pihole'
+        typeName: 'Pihole',
+        cols: 1,
+        rows: 1
       },
       {
         name: "Spacer",
         icon: "highlight_alt",
         type: SpacerCardComponent,
-        typeName: 'Spacer'
+        typeName: 'Spacer',
+        cols: 1,
+        rows: 1
       }
     ];
     lights.forEach(light => {
@@ -62,7 +68,9 @@ export class WidgetService {
         icon: "light",
         type: LightControlCardComponent,
         typeName: 'Light',
-        inputs: { id: light.id }
+        inputs: { id: light.id },
+        cols: 1,
+        rows: 1
       })
     });
     return widgets;

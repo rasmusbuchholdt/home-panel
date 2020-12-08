@@ -27,14 +27,15 @@ export class GridsterComponent implements OnInit {
       enabled: false
     },
     outerMargin: false,
-    displayGrid: DisplayGrid.OnDragAndResize,
-    gridType: GridType.Fit,
+    displayGrid: DisplayGrid.None,
+    gridType: GridType.Fixed,
     pushItems: true,
     margin: 5,
-    minCols: 5,
+    minCols: 3,
     minRows: 3,
-    defaultItemCols: 3,
-    defaultItemRows: 3
+    defaultItemCols: 4,
+    defaultItemRows: 3,
+    fixedRowHeight: 125
   };
   dashboard: Array<GridsterItem> = [
   ];
@@ -56,6 +57,7 @@ export class GridsterComponent implements OnInit {
     if (this.options.draggable && this.options.resizable) {
       this.options.draggable.enabled = this.locked;
       this.options.resizable.enabled = this.locked;
+      this.options.displayGrid = this.locked ? DisplayGrid.Always : DisplayGrid.None,
       this.locked = !this.locked;
       this.changedOptions();
     }
@@ -82,7 +84,7 @@ export class GridsterComponent implements OnInit {
 
   addWidget(widget: Widget) {
     const item: GridsterItem = {
-      cols: 1, rows: 1, y: 0, x: 0, type: widget.type, typeName: widget.typeName, inputs: widget.inputs
+      cols: widget.cols, rows: widget.rows, y: 0, x: 0, type: widget.type, typeName: widget.typeName, inputs: widget.inputs
     };
     this.dashboard.push(item);
   }

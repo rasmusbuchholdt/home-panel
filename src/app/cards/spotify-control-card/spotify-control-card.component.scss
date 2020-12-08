@@ -4,7 +4,6 @@
   word-break: break-word;
   margin-bottom: 10px;
   height: 100%;
-  display: grid;
 }
 
 .mat-card-header-image {
@@ -13,7 +12,7 @@
 }
 
 .mat-card-header {
-  margin-bottom: -20px;
+  margin-bottom: -10px;
 
   .mat-card-title {
     font-size: 16px;
