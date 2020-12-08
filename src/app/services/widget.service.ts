@@ -7,6 +7,9 @@ import {
   PiholeControlCardComponent,
 } from '../cards/pihole-control-card/pihole-control-card.component';
 import {
+  SpacerCardComponent,
+} from '../cards/spacer-card/spacer-card.component';
+import {
   SpotifyControlCardComponent,
 } from '../cards/spotify-control-card/spotify-control-card.component';
 import { Light } from '../models/light';
@@ -31,6 +34,11 @@ export class WidgetService {
         name: "Pi-hole",
         icon: "router",
         type: PiholeControlCardComponent
+      },
+      {
+        name: "Spacer",
+        icon: "highlight_alt",
+        type: SpacerCardComponent
       }
     ];
     lights.forEach(light => {

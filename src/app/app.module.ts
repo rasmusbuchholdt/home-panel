@@ -48,6 +48,7 @@ import { LightsComponent } from './pages/lights/lights.component';
 import { PiholeComponent } from './pages/pihole/pihole.component';
 import { SpotifyComponent } from './pages/spotify/spotify.component';
 import { WidgetComponent } from './widget/widget.component';
+import { SpacerCardComponent } from './cards/spacer-card/spacer-card.component';
 
 @Injectable()
 export class MyHammerConfig extends HammerGestureConfig {
@@ -73,7 +74,8 @@ export class MyHammerConfig extends HammerGestureConfig {
     PiholeControlCardComponent,
     PiholeStatCardComponent,
     GridsterComponent,
-    WidgetComponent
+    WidgetComponent,
+    SpacerCardComponent
   ],
   imports: [
     BrowserModule,
