@@ -23,7 +23,10 @@ export class NavigationComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver, private cookieService: CookieService) {
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    private cookieService: CookieService
+  ) {
     this.getDarkModePreference();
   }
 
@@ -44,5 +47,19 @@ export class NavigationComponent {
     if (this.drawer && this.drawer.mode == 'over') {
       this.drawer.close();
     }
+  }
+
+  openDrawer() {
+    if (this.drawer && this.drawer.mode == 'over') {
+      this.drawer.open();
+    }
+  }
+
+  onSwipeRight(event: any) {
+    this.openDrawer();
+  }
+
+  onSwipeLeft(event: any) {
+    this.closeDrawer();
   }
 }

@@ -1,4 +1,4 @@
-<mat-sidenav-container class="sidenav-container">
+<mat-sidenav-container class="sidenav-container" (swiperight)="onSwipeRight($event)" (swipeleft)="onSwipeLeft($event)">
   <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
@@ -15,7 +15,8 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <a *ngIf="(isHandset$ | async) === false" class="logo" [routerLink]="['/']" href="/"><img src="/assets/images/logo.svg" width="30" height="30"></a>
+      <a *ngIf="(isHandset$ | async) === false" class="logo" [routerLink]="['/']" href="/"><img
+          src="/assets/images/logo.svg" width="30" height="30"></a>
       <span>Home Panel</span>
       <span class="spacer"></span>
       <button mat-icon-button (click)="toggleDarkMode()">

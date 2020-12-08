@@ -1,6 +1,6 @@
 import { LayoutModule } from '@angular/cdk/layout';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { Injectable, NgModule } from '@angular/core';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -12,9 +12,15 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { BrowserModule } from '@angular/platform-browser';
+import {
+  BrowserModule,
+  HAMMER_GESTURE_CONFIG,
+  HammerGestureConfig,
+  HammerModule,
+} from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GridsterModule } from 'angular-gridster2';
+import * as Hammer from 'hammerjs';
 import { DynamicModule } from 'ng-dynamic-component';
 import { CookieService } from 'ngx-cookie-service';
 
@@ -42,6 +48,16 @@ import { LightsComponent } from './pages/lights/lights.component';
 import { PiholeComponent } from './pages/pihole/pihole.component';
 import { SpotifyComponent } from './pages/spotify/spotify.component';
 import { WidgetComponent } from './widget/widget.component';
+
+@Injectable()
+export class MyHammerConfig extends HammerGestureConfig {
+  overrides = <any>{
+    swipe: { direction: Hammer.DIRECTION_HORIZONTAL },
+    pinch: { enable: false },
+    rotate: { enable: false },
+    pan: { enable: false }
+  };
+}
 
 @NgModule({
   declarations: [
@@ -73,6 +89,7 @@ import { WidgetComponent } from './widget/widget.component';
     MatIconModule,
     MatInputModule,
     MatButtonModule,
+    HammerModule,
     LayoutModule,
     MatToolbarModule,
     MatSidenavModule,
@@ -81,7 +98,8 @@ import { WidgetComponent } from './widget/widget.component';
   ],
   providers: [
     HttpClient,
-    CookieService
+    CookieService,
+    { provide: HAMMER_GESTURE_CONFIG, useClass: MyHammerConfig }
   ],
   bootstrap: [AppComponent]
 })
