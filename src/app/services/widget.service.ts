@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 
 import {
   LightControlCardComponent,
@@ -20,7 +20,19 @@ import { Widget } from '../models/widget';
 })
 export class WidgetService {
 
+  private componentRegistry = {
+    'Spotify': SpotifyControlCardComponent,
+    'Pihole': PiholeControlCardComponent,
+    'Light': LightControlCardComponent,
+    'Spacer': SpacerCardComponent
+  }
+
   constructor() { }
+
+  getWidgetComponentType(typeName: string): Component {
+    // @ts-ignore
+    return this.componentRegistry[typeName];
+  }
 
   // TODO: Needs to be completely rewritten
   getWidgets(lights: Light[]): Widget[] {
@@ -28,17 +40,20 @@ export class WidgetService {
       {
         name: "Spotify",
         icon: "radio",
-        type: SpotifyControlCardComponent
+        type: SpotifyControlCardComponent,
+        typeName: 'Spotify'
       },
       {
         name: "Pi-hole",
         icon: "router",
-        type: PiholeControlCardComponent
+        type: PiholeControlCardComponent,
+        typeName: 'Pihole'
       },
       {
         name: "Spacer",
         icon: "highlight_alt",
-        type: SpacerCardComponent
+        type: SpacerCardComponent,
+        typeName: 'Spacer'
       }
     ];
     lights.forEach(light => {
@@ -46,6 +61,7 @@ export class WidgetService {
         name: light.name,
         icon: "light",
         type: LightControlCardComponent,
+        typeName: 'Light',
         inputs: { id: light.id }
       })
     });

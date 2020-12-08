@@ -1,6 +1,9 @@
 <div class="container">
   <div class="button-group">
     <a mat-flat-button color="primary" [matMenuTriggerFor]="menu">Add Widget</a>
+    <button mat-icon-button color="primary" (click)="saveDashboard()">
+      <mat-icon>save</mat-icon>
+    </button>
     <button mat-icon-button color="primary" (click)="toggleLock()">
       <mat-icon *ngIf="locked">lock</mat-icon>
       <mat-icon *ngIf="!locked">lock_open</mat-icon>

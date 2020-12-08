@@ -8,6 +8,7 @@ import {
 import { take } from 'rxjs/operators';
 
 import { Widget } from '../models/widget';
+import { DashboardService } from '../services/dashboard.service';
 import { LightService } from '../services/light.service';
 import { WidgetService } from '../services/widget.service';
 
@@ -20,10 +21,10 @@ export class GridsterComponent implements OnInit {
 
   options: GridsterConfig = {
     draggable: {
-      enabled: true
+      enabled: false
     },
     resizable: {
-      enabled: true
+      enabled: false
     },
     outerMargin: false,
     displayGrid: DisplayGrid.OnDragAndResize,
@@ -38,10 +39,15 @@ export class GridsterComponent implements OnInit {
   dashboard: Array<GridsterItem> = [
   ];
   widgets: Widget[] = [];
-  locked: boolean = false;
+  locked: boolean = true;
 
-  constructor(private widgetService: WidgetService, private lightService: LightService) {
+  constructor(
+    private widgetService: WidgetService,
+    private lightService: LightService,
+    private dashboardService: DashboardService
+  ) {
     this.getWidgets();
+    this.loadDashboard();
   }
 
   ngOnInit() { }
@@ -55,6 +61,10 @@ export class GridsterComponent implements OnInit {
     }
   }
 
+  loadDashboard(): void {
+    this.dashboard = this.dashboardService.getDashboard();
+  }
+
   getWidgets() {
     this.lightService.getLights().pipe(take(1)).subscribe(lights => {
       this.widgets = this.widgetService.getWidgets(lights);
@@ -66,14 +76,18 @@ export class GridsterComponent implements OnInit {
       this.options.api.optionsChanged();
   }
 
-  removeItem(item: any) {
+  removeItem(item: GridsterItem) {
     this.dashboard.splice(this.dashboard.indexOf(item), 1);
   }
 
   addWidget(widget: Widget) {
     const item: GridsterItem = {
-      cols: 1, rows: 1, y: 0, x: 0, type: widget.type, inputs: widget.inputs
+      cols: 1, rows: 1, y: 0, x: 0, type: widget.type, typeName: widget.typeName, inputs: widget.inputs
     };
     this.dashboard.push(item);
+  }
+
+  saveDashboard(): void {
+    this.dashboardService.saveDashboard(this.dashboard);
   }
 }
