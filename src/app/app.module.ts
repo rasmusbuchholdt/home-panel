@@ -33,13 +33,11 @@ import {
 import {
   PiholeControlCardComponent,
 } from './cards/pihole-control-card/pihole-control-card.component';
-import {
-  PiholeStatCardComponent,
-} from './cards/pihole-stat-card/pihole-stat-card.component';
 import { SpacerCardComponent } from './cards/spacer-card/spacer-card.component';
 import {
   SpotifyControlCardComponent,
 } from './cards/spotify-control-card/spotify-control-card.component';
+import { TextCardComponent } from './cards/text-card/text-card.component';
 import {
   VoiceControlCardComponent,
 } from './cards/voice-control-card/voice-control-card.component';
@@ -73,7 +71,7 @@ export class MyHammerConfig extends HammerGestureConfig {
     LightControlCardComponent,
     PiholeComponent,
     PiholeControlCardComponent,
-    PiholeStatCardComponent,
+    TextCardComponent,
     GridsterComponent,
     WidgetComponent,
     SpacerCardComponent
