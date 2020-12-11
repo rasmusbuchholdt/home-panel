@@ -40,7 +40,7 @@ export class NavigationComponent {
   toggleDarkMode() {
     this.darkMode = !this.darkMode;
     this.componentCssClass = this.darkMode ? 'dark-theme' : '';
-    this.cookieService.set('dark_mode', this.darkMode ? '1' : '0');
+    this.cookieService.set('dark_mode', this.darkMode ? '1' : '0', 365);
   }
 
   closeDrawer() {

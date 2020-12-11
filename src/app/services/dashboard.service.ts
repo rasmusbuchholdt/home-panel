@@ -12,7 +12,7 @@ export class DashboardService {
   constructor(private cookieService: CookieService, private widgetService: WidgetService) { }
 
   saveDashboard(dashboard: GridsterItem[],): void {
-    this.cookieService.set('dashboard', JSON.stringify(dashboard));
+    this.cookieService.set('dashboard', JSON.stringify(dashboard), 365);
   }
 
   getDashboard(): GridsterItem[] {
