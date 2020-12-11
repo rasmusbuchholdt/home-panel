@@ -92,10 +92,10 @@ export class GridsterComponent implements OnInit {
 
   addWidget(widget: Widget) {
     const item: GridsterItem = {
-      cols: widget.cols, rows: widget.rows, y: 0, x: 0, type: widget.type, typeName: widget.typeName, inputs: widget.inputs
+      cols: widget.cols, rows: widget.rows, y: 0, x: 0, type: widget.type, typeName: widget.typeName, inputs: widget.inputs || {}
     };
 
-    if (widget.type = 'Text') {
+    if (widget.typeName === 'Text') {
       this.openTextCardDialog(item);
     } else {
       this.dashboard.push(item);
@@ -108,9 +108,11 @@ export class GridsterComponent implements OnInit {
       data: { title: '', body: '' } as TextData
     });
     dialogRef.afterClosed().subscribe(result => {
-      item.inputs.title = result.title;
-      item.inputs.body = result.body;
-      this.dashboard.push(item);
+      if (result) {
+        item.inputs.title = result.title;
+        item.inputs.body = result.body;
+        this.dashboard.push(item);
+      }
     });
   }
 

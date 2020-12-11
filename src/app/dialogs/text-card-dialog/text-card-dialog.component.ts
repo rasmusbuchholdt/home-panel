@@ -20,5 +20,4 @@ export class TextCardDialogComponent implements OnInit {
   onNoClick(): void {
     this.dialogRef.close();
   }
-
 }
