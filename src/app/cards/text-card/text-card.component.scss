@@ -9,3 +9,11 @@
 .mat-card ::ng-deep .mat-card-header-text {
   margin: 0px;
 }
+
+.mat-card ::ng-deep .mat-card-header {
+  margin-bottom: -10px;
+}
+
+.mat-card ::ng-deep .mat-card-content {
+  word-wrap: anywhere;
+}

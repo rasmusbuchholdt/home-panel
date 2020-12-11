@@ -12,6 +12,7 @@ import {
 import {
   SpotifyControlCardComponent,
 } from '../cards/spotify-control-card/spotify-control-card.component';
+import { TextCardComponent } from '../cards/text-card/text-card.component';
 import { Light } from '../models/light';
 import { Widget } from '../models/widget';
 
@@ -24,6 +25,7 @@ export class WidgetService {
     'Spotify': SpotifyControlCardComponent,
     'Pihole': PiholeControlCardComponent,
     'Light': LightControlCardComponent,
+    'Text': TextCardComponent,
     'Spacer': SpacerCardComponent
   }
 
@@ -54,6 +56,15 @@ export class WidgetService {
         rows: 1
       },
       {
+        name: "Text",
+        icon: "article",
+        type: TextCardComponent,
+        typeName: 'Text',
+        inputs: { title: 'test', body: 'body', type: 'text' },
+        cols: 1,
+        rows: 1
+      },
+      {
         name: "Spacer",
         icon: "highlight_alt",
         type: SpacerCardComponent,
@@ -68,7 +79,7 @@ export class WidgetService {
         icon: "light",
         type: LightControlCardComponent,
         typeName: 'Light',
-        inputs: { id: light.id },
+        inputs: { id: light.id, type: 'light' },
         cols: 1,
         rows: 1
       })

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import {
   DisplayGrid,
@@ -8,6 +9,10 @@ import {
 } from 'angular-gridster2';
 import { take } from 'rxjs/operators';
 
+import {
+  TextCardDialogComponent,
+} from '../dialogs/text-card-dialog/text-card-dialog.component';
+import { TextData } from '../models/text-data';
 import { Widget } from '../models/widget';
 import { DashboardService } from '../services/dashboard.service';
 import { LightService } from '../services/light.service';
@@ -47,7 +52,8 @@ export class GridsterComponent implements OnInit {
     private widgetService: WidgetService,
     private lightService: LightService,
     private dashboardService: DashboardService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    public dialog: MatDialog
   ) {
     this.getWidgets();
     this.loadDashboard();
@@ -60,7 +66,7 @@ export class GridsterComponent implements OnInit {
       this.options.draggable.enabled = this.locked;
       this.options.resizable.enabled = this.locked;
       this.options.displayGrid = this.locked ? DisplayGrid.Always : DisplayGrid.None,
-      this.locked = !this.locked;
+        this.locked = !this.locked;
       this.changedOptions();
     }
   }
@@ -88,7 +94,24 @@ export class GridsterComponent implements OnInit {
     const item: GridsterItem = {
       cols: widget.cols, rows: widget.rows, y: 0, x: 0, type: widget.type, typeName: widget.typeName, inputs: widget.inputs
     };
-    this.dashboard.push(item);
+
+    if (widget.type = 'Text') {
+      this.openTextCardDialog(item);
+    } else {
+      this.dashboard.push(item);
+    }
+  }
+
+  openTextCardDialog(item: GridsterItem) {
+    const dialogRef = this.dialog.open(TextCardDialogComponent, {
+      width: '250px',
+      data: { title: '', body: '' } as TextData
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      item.inputs.title = result.title;
+      item.inputs.body = result.body;
+      this.dashboard.push(item);
+    });
   }
 
   saveDashboard(): void {

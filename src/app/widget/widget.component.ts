@@ -23,11 +23,14 @@ export class WidgetComponent implements OnInit {
 
   // TODO: Better handling for different component types
   componentCreated(compRef: ComponentRef<any>) {
-    if (this.inputs) {
+    if (this.inputs.type === 'light') {
       this.lightService.getLight(this.inputs.id).pipe(take(1)).subscribe(light => {
         compRef.instance.light = light;
         compRef.instance.getLightState(light);
       });
+    } else if (this.inputs.type === 'text') {
+      compRef.instance.title = this.inputs.title;
+      compRef.instance.body = this.inputs.body;
     }
   }
 }

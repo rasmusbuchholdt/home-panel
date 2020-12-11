@@ -1,9 +1,11 @@
 import { LayoutModule } from '@angular/cdk/layout';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injectable, NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -41,6 +43,9 @@ import { TextCardComponent } from './cards/text-card/text-card.component';
 import {
   VoiceControlCardComponent,
 } from './cards/voice-control-card/voice-control-card.component';
+import {
+  TextCardDialogComponent,
+} from './dialogs/text-card-dialog/text-card-dialog.component';
 import { GridsterComponent } from './gridster/gridster.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
@@ -74,7 +79,8 @@ export class MyHammerConfig extends HammerGestureConfig {
     TextCardComponent,
     GridsterComponent,
     WidgetComponent,
-    SpacerCardComponent
+    SpacerCardComponent,
+    TextCardDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -82,8 +88,10 @@ export class MyHammerConfig extends HammerGestureConfig {
     BrowserAnimationsModule,
     DynamicModule,
     GridsterModule,
+    FormsModule,
     HttpClientModule,
     MatGridListModule,
+    MatDialogModule,
     MatBadgeModule,
     MatCardModule,
     MatMenuModule,
