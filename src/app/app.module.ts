@@ -25,6 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GridsterModule } from 'angular-gridster2';
 import * as Hammer from 'hammerjs';
 import { DynamicModule } from 'ng-dynamic-component';
+import { ColorCircleModule } from 'ngx-color/circle';
 import { CookieService } from 'ngx-cookie-service';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -43,6 +44,9 @@ import { TextCardComponent } from './cards/text-card/text-card.component';
 import {
   VoiceControlCardComponent,
 } from './cards/voice-control-card/voice-control-card.component';
+import {
+  LightConfigDialogComponent,
+} from './dialogs/light-config-dialog/light-config-dialog.component';
 import {
   TextCardDialogComponent,
 } from './dialogs/text-card-dialog/text-card-dialog.component';
@@ -80,12 +84,14 @@ export class MyHammerConfig extends HammerGestureConfig {
     GridsterComponent,
     WidgetComponent,
     SpacerCardComponent,
-    TextCardDialogComponent
+    TextCardDialogComponent,
+    LightConfigDialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ColorCircleModule,
     DynamicModule,
     GridsterModule,
     FormsModule,

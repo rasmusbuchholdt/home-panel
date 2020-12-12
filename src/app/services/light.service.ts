@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 import { Light } from '../models/light';
+import { LightConfig } from '../models/light-config';
 
 @Injectable({
   providedIn: 'root'
@@ -12,15 +13,19 @@ export class LightService {
 
   constructor(private http: HttpClient) { }
 
-  public getLights(): Observable<Light[]> {
+  getLights(): Observable<Light[]> {
     return this.http.get<Light[]>(`${environment.apiUrl}/api/lights`);
   }
 
-  public getLight(id: number): Observable<Light> {
+  getLight(id: number): Observable<Light> {
     return this.http.get<Light>(`${environment.apiUrl}/api/light/${id}`);
   }
 
-  public toggleLight(id: number): Observable<any> {
+  toggleLight(id: number): Observable<any> {
     return this.http.get<any>(`${environment.apiUrl}/api/light/${id}/toggle`);
+  }
+
+  setLight(lightConfig: LightConfig): Observable<object> {
+    return this.http.post(`${environment.apiUrl}/api/light/set`, lightConfig);
   }
 }

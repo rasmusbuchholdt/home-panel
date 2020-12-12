@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>Light settings</h1>
+<div mat-dialog-content>
+  <div class="color-selector">
+    <!-- TODO: Add support for full color slider on PC -->
+    <color-circle [width]="180" [circleSize]="14"
+      [colors]='["#F5F5DC", "#f44336", "#e91e63", "#9c27b0", "#673ab7", "#3f51b5", "#2196f3", "#03a9f4", "#00bcd4", "#009688", "#4caf50", "#8bc34a", "#cddc39", "#ffeb3b", "#ffc107", "#ff9800", "#ff5722"]'
+      (onChange)="handleChange($event)">
+    </color-circle>
+  </div>
+  <mat-label>Brightness</mat-label>
+  <mat-slider thumbLabel [displayWith]="formatSliderLabel" [(ngModel)]="data.brightness" min="1" max="100"></mat-slider>
+  <mat-label>Saturation</mat-label>
+  <mat-slider thumbLabel [displayWith]="formatSliderLabel" [(ngModel)]="data.saturation" min="1" max="100"></mat-slider>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+</div>
