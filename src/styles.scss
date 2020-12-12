@@ -25,6 +25,11 @@ $dark-theme: mat-dark-theme(
   )
 );
 
+// Include the theme styles for only specified components.
+// TODO: Needs to be a part of the dark theme toggle
+@include mat-dialog-theme($dark-theme);
+@include angular-material-color($dark-theme);
+
 .dark-theme {
-  @include angular-material-color($dark-theme);
+  @include mat-menu-theme($dark-theme);
 }
