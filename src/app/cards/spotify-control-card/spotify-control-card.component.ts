@@ -11,7 +11,7 @@ import { SpotifyService } from 'src/app/services/spotify.service';
 export class SpotifyControlCardComponent implements OnInit {
 
   devices: SpotifyDevice[] = [];
-  currentSong = "Fetching information";
+  currentSong = "No active playback found";
   isPlaying = false;
   currentVolume = 0;
   isConnected = false;
