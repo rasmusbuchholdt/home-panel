@@ -30,5 +30,6 @@ export class LightConfigDialogComponent implements OnInit {
     this.data.rgb.R = $event.color.rgb.r;
     this.data.rgb.G = $event.color.rgb.g;
     this.data.rgb.B = $event.color.rgb.b;
+    this.data.rgb.change = true;
   }
 }

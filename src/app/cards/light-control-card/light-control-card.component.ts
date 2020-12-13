@@ -66,8 +66,7 @@ export class LightControlCardComponent implements OnInit {
         data: {
           id: this.light.id,
           enabled: this.isOn,
-          // TODO: Get current color
-          rgb: { R: 0, G: 0, B: 0 },
+          rgb: { R: 0, G: 0, B: 0, change: false },
           saturation: this.saturation,
           brightness: this.brightness,
         } as LightConfig

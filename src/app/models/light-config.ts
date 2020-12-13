@@ -2,6 +2,7 @@ export interface RGB {
   R: number;
   G: number;
   B: number;
+  change: boolean;
 }
 
 export interface LightConfig {
