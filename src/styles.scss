@@ -9,6 +9,44 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+// Material cards
+.mat-card {
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  margin-bottom: 10px;
+  border-radius: 0 !important;
+  height: 100%;
+  transition: none !important;
+  box-shadow: none !important;
+}
+
+.mat-card-header {
+  margin-bottom: -10px;
+
+  .mat-card-title {
+    font-size: 16px !important;
+  }
+}
+
+// Range slider
+::ng-deep.mat-accent ::ng-deep.mat-slider-thumb-label-text {
+  font-size: 9px;
+  color: white;
+}
+
+::ng-deep.mat-accent ::ng-deep.mat-slider-track-fill,
+::ng-deep.mat-accent ::ng-deep.mat-slider-thumb,
+::ng-deep.mat-accent ::ng-deep.mat-slider-thumb-label {
+  background-color: #673ab7;
+}
+
+::ng-deep.mat-slider-min-value.mat-slider-thumb-label-showing ::ng-deep.mat-slider-thumb,
+::ng-deep.mat-slider-min-value.mat-slider-thumb-label-showing ::ng-deep.mat-slider-thumb-label {
+  background-color: #673ab7;
+}
+
 @import "~@angular/material/theming";
 @include mat-core();
 
