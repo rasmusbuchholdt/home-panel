@@ -25,7 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GridsterModule } from 'angular-gridster2';
 import * as Hammer from 'hammerjs';
 import { DynamicModule } from 'ng-dynamic-component';
-import { ColorCircleModule } from 'ngx-color/circle';
+import { ColorHueModule } from 'ngx-color/hue';
 import { CookieService } from 'ngx-cookie-service';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -91,7 +91,7 @@ export class MyHammerConfig extends HammerGestureConfig {
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ColorCircleModule,
+    ColorHueModule,
     DynamicModule,
     GridsterModule,
     FormsModule,
