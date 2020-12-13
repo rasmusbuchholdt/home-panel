@@ -36,7 +36,7 @@ export class GridsterComponent implements OnInit {
     displayGrid: DisplayGrid.None,
     gridType: GridType.Fixed,
     pushItems: true,
-    margin: 3,
+    margin: 5,
     minCols: 3,
     minRows: 3,
     defaultItemCols: 4,
