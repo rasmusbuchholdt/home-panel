@@ -15,10 +15,10 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <a *ngIf="(isHandset$ | async) === false" class="logo" [routerLink]="['/']" href="/">
+      <a *ngIf="(isHandset$ | async) === false" class="logo" [routerLink]="['/']">
         <mat-icon class="white-icon">home</mat-icon>
       </a>
-      <span>Home Panel</span>
+      <span [routerLink]="['/']">Home Panel</span>
       <span class="spacer"></span>
       <button mat-icon-button>
         <mat-icon>person</mat-icon>
