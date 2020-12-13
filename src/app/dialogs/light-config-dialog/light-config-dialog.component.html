@@ -1,15 +1,15 @@
 <h1 mat-dialog-title>Light settings</h1>
 <div mat-dialog-content>
   <div class="color-selector">
-    <mat-card [style.background-color]="selectedColor"></mat-card>
-    <color-hue-picker [width]="190" (onChange)="handleChange($event)">
-    </color-hue-picker>
     <div class="color-circle">
       <color-circle [width]="220" [circleSize]="15"
         [colors]='["white", "#00ff00", "blue", "#a200ff", "#f003fc", "#f2ff00", "red"]'
         (onChange)="handleChange($event)">
       </color-circle>
     </div>
+    <mat-card [style.background-color]="selectedColor"></mat-card>
+    <color-hue-picker [width]="190" (onChange)="handleChange($event)">
+    </color-hue-picker>
   </div>
   <mat-label>Brightness</mat-label>
   <mat-slider thumbLabel [displayWith]="formatSliderLabel" [(ngModel)]="data.brightness" min="1" max="100"></mat-slider>
