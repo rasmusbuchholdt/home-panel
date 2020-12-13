@@ -9,6 +9,12 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+.mat-button,
+.mat-stroked-button,
+.mat-flat-button {
+  border-radius: 0 !important;
+}
+
 // Material cards
 .mat-card {
   top: 0px;
