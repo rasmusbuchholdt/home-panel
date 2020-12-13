@@ -10,7 +10,7 @@ import { LightConfig } from 'src/app/models/light-config';
 })
 export class LightConfigDialogComponent implements OnInit {
 
-  selectedColor = "blue";
+  selectedColor = "#FFFFFF";
 
   constructor
     (

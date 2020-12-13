@@ -3,12 +3,12 @@
   <div class="color-selector">
     <div class="color-circle">
       <color-circle [width]="220" [circleSize]="15"
-        [colors]='["white", "#00ff00", "blue", "#a200ff", "#f003fc", "#f2ff00", "red"]'
+        [colors]='["#FFFFFF", "#00ff00", "blue", "#a200ff", "#f003fc", "#f2ff00", "red"]'
         (onChange)="handleChange($event)">
       </color-circle>
     </div>
     <mat-card [style.background-color]="selectedColor"></mat-card>
-    <color-hue-picker [width]="190" (onChange)="handleChange($event)">
+    <color-hue-picker [color]="selectedColor" [width]="190" (onChange)="handleChange($event)">
     </color-hue-picker>
   </div>
   <mat-label>Brightness</mat-label>
