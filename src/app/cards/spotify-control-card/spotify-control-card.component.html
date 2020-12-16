@@ -19,7 +19,7 @@
     </button>
     <mat-slider [disabled]="!isConnected" thumbLabel [displayWith]="formatVolumeLabel"
       (change)="setVolume($event.value)" [value]="currentVolume" min="1" max="100"></mat-slider>
-    <button mat-icon-button color="primary" [matMenuTriggerFor]="menu">
+    <button [disabled]="!isConnected || devices.length === 0" mat-icon-button color="primary" [matMenuTriggerFor]="menu">
       <mat-icon [matBadge]="devices.length" matBadgeColor="warn">cast</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
