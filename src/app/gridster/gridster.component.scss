@@ -4,8 +4,7 @@
 
 .container {
   margin-top: -10px;
-  // height: calc(100vh - 150px); /* you can use calc() function. */
-  height: 70vh;
+  height: calc(100vh - 150px);
   margin: 0;
   padding: 0;
 }
