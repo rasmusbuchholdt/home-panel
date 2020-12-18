@@ -44,7 +44,7 @@ export class WidgetService {
         icon: "radio",
         type: SpotifyControlCardComponent,
         typeName: 'Spotify',
-        cols: 2,
+        cols: 3,
         rows: 1
       },
       {
@@ -52,7 +52,7 @@ export class WidgetService {
         icon: "router",
         type: PiholeControlCardComponent,
         typeName: 'Pihole',
-        cols: 1,
+        cols: 2,
         rows: 1
       },
       {
@@ -61,7 +61,7 @@ export class WidgetService {
         type: TextCardComponent,
         typeName: 'Text',
         inputs: { title: 'test', body: 'body', type: 'text' },
-        cols: 1,
+        cols: 2,
         rows: 1
       },
       {
@@ -80,7 +80,7 @@ export class WidgetService {
         type: LightControlCardComponent,
         typeName: 'Light',
         inputs: { id: light.id, type: 'light' },
-        cols: 1,
+        cols: 2,
         rows: 1
       })
     });

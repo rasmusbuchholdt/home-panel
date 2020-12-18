@@ -34,13 +34,15 @@ export class GridsterComponent implements OnInit {
     },
     outerMargin: false,
     displayGrid: DisplayGrid.None,
-    gridType: GridType.Fixed,
+    gridType: GridType.VerticalFixed,
     pushItems: true,
     margin: 5,
-    minCols: 3,
-    minRows: 3,
-    defaultItemCols: 4,
-    defaultItemRows: 3,
+    minCols: 12,
+    maxCols: 12,
+    minRows: 6,
+    maxRows: 6,
+    defaultItemCols: 1,
+    defaultItemRows: 1,
     fixedRowHeight: 125
   };
   dashboard: Array<GridsterItem> = [
