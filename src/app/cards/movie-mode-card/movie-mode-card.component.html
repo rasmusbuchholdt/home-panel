@@ -1,5 +1,6 @@
 <mat-card>
   <div class="container">
-    <img (click)="toggleMovieMode()" src="assets/images/movie.svg" [ngClass]="isOn ? '' : 'image-off'" />
+    <img *ngIf="isDesktop" width="60%" (click)="toggleMovieMode()" src="assets/images/movie.svg" [ngClass]="isOn ? '' : 'image-off'" />
+    <img *ngIf="!isDesktop" width="30%" (click)="toggleMovieMode()" src="assets/images/movie.svg" [ngClass]="isOn ? '' : 'image-off'" />
   </div>
 </mat-card>

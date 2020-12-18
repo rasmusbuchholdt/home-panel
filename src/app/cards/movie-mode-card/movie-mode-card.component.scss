@@ -1,14 +1,10 @@
 img {
-  max-height: 100%;
-  max-width: 100%;
-  width: 60%;
-  height: auto;
-  position: fixed;
+  position: absolute;
+  margin: auto;
   top: 0;
-  bottom: 0;
   left: 0;
   right: 0;
-  margin: auto;
+  bottom: 30px;
 }
 
 .image-off {
