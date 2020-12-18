@@ -13,4 +13,8 @@ export class MovieModeService {
   public toggleMovieMode(): Observable<any> {
     return this.http.get(`${environment.apiUrl}/api/moviemode/toggle`);
   }
+
+  getMovieMode(): Observable<boolean> {
+    return this.http.get<boolean>(`${environment.apiUrl}/api/moviemode/`);
+  }
 }

@@ -4,6 +4,9 @@ import {
   LightControlCardComponent,
 } from '../cards/light-control-card/light-control-card.component';
 import {
+  MovieModeCardComponent,
+} from '../cards/movie-mode-card/movie-mode-card.component';
+import {
   PiholeControlCardComponent,
 } from '../cards/pihole-control-card/pihole-control-card.component';
 import {
@@ -24,6 +27,7 @@ export class WidgetService {
   private componentRegistry = {
     'Spotify': SpotifyControlCardComponent,
     'Pihole': PiholeControlCardComponent,
+    'MovieMode': MovieModeCardComponent,
     'Light': LightControlCardComponent,
     'Text': TextCardComponent,
     'Spacer': SpacerCardComponent
@@ -53,6 +57,14 @@ export class WidgetService {
         type: PiholeControlCardComponent,
         typeName: 'Pihole',
         cols: 2,
+        rows: 1
+      },
+      {
+        name: "Movie Mode",
+        icon: "theaters",
+        type: MovieModeCardComponent,
+        typeName: 'MovieMode',
+        cols: 1,
         rows: 1
       },
       {

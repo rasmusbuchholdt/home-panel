@@ -35,6 +35,9 @@ import {
   LightControlCardComponent,
 } from './cards/light-control-card/light-control-card.component';
 import {
+  MovieModeCardComponent,
+} from './cards/movie-mode-card/movie-mode-card.component';
+import {
   PiholeControlCardComponent,
 } from './cards/pihole-control-card/pihole-control-card.component';
 import { SpacerCardComponent } from './cards/spacer-card/spacer-card.component';
@@ -86,7 +89,8 @@ export class MyHammerConfig extends HammerGestureConfig {
     WidgetComponent,
     SpacerCardComponent,
     TextCardDialogComponent,
-    LightConfigDialogComponent
+    LightConfigDialogComponent,
+    MovieModeCardComponent
   ],
   imports: [
     BrowserModule,
