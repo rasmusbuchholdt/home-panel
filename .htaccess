@@ -1,0 +1,25 @@
+# Generated with ngx-htaccess-generator v1.0.3
+# https://julianpoemp.github.io/ngx-htaccess-generator/
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Remove www
+  RewriteCond %{HTTPS} off
+  RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+  RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+  RewriteCond %{HTTPS} on
+  RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+  RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+  # Excluded directories:
+  RewriteRule ^admin/?(.*) %{REQUEST_URI} [L,R=301]
+  RewriteRule ^pihole/?(.*) %{REQUEST_URI} [L,R=301]
+
+  # Redirection of requests to index.html
+  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
+  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
+  RewriteRule ^.*$ - [NC,L]
+  RewriteRule ^(.*) index.html [NC,L]
+</IfModule>
