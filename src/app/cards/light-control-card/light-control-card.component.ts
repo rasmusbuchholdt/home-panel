@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { delay, take, tap } from 'rxjs/operators';
+import { delay, take } from 'rxjs/operators';
 import { Light } from 'src/app/_models/light';
 import { LightConfig } from 'src/app/_models/light-config';
 import { LightService } from 'src/app/_services/light.service';
@@ -65,7 +65,6 @@ export class LightControlCardComponent implements OnInit {
     if (!this.light) return;
     this.lightService.toggleLight(this.light.id).pipe(
       take(1),
-      tap(() => this.isOn = !this.isOn),
       delay(500),
     ).subscribe(() => this.refreshLightState());
   }
