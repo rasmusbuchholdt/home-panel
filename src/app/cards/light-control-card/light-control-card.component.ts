@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { delay, take, tap } from 'rxjs/operators';
+import { normalize } from 'src/app/_utils/normalize';
 import {
   LightConfigDialogComponent,
 } from 'src/app/dialogs/light-config-dialog/light-config-dialog.component';
@@ -38,8 +39,8 @@ export class LightControlCardComponent implements OnInit {
     this.isOn = (light.state.on && light.state.reachable);
     this.isSwitchOn = light.state.reachable;
     this.status = `The switch is ${light.state.reachable ? 'on' : 'off'}`;
-    this.saturation = this.normalize(light.state.sat, 1, 254);
-    this.brightness = this.normalize(light.state.bri, 1, 254);
+    this.saturation = normalize(light.state.sat, 1, 254);
+    this.brightness = normalize(light.state.bri, 1, 254);
 
     setTimeout(() => {
       this.refreshLightState();
@@ -81,9 +82,5 @@ export class LightControlCardComponent implements OnInit {
         this.saturation = result.saturation;
       }
     });
-  }
-
-  normalize(value: number, min: number, max: number): number {
-    return (value - min) / (max - min) * 100;
   }
 }
