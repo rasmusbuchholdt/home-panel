@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { take, tap } from 'rxjs/operators';
-import { PiholeSummary } from 'src/app/models/pihole-summary';
-import { PiholeService } from 'src/app/services/pihole.service';
+import { PiholeSummary } from 'src/app/_models/pihole-summary';
+import { PiholeService } from 'src/app/_services/pihole.service';
 
 @Component({
   selector: 'app-pihole-control-card',

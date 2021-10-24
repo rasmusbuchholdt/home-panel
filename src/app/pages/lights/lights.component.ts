@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { take } from 'rxjs/operators';
-import { Light } from 'src/app/models/light';
-import { LightService } from 'src/app/services/light.service';
+import { Light } from 'src/app/_models/light';
+import { LightService } from 'src/app/_services/light.service';
 
 @Component({
   selector: 'app-lights',

@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ColorEvent } from 'ngx-color';
-import { LightConfig } from 'src/app/models/light-config';
+import { LightConfig } from 'src/app/_models/light-config';
 
 @Component({
   selector: 'app-light-config-dialog',

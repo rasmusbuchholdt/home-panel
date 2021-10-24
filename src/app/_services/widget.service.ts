@@ -1,5 +1,7 @@
 import { Component, Injectable } from '@angular/core';
 
+import { Light } from '../_models/light';
+import { Widget } from '../_models/widget';
 import {
   LightControlCardComponent,
 } from '../cards/light-control-card/light-control-card.component';
@@ -16,8 +18,6 @@ import {
   SpotifyControlCardComponent,
 } from '../cards/spotify-control-card/spotify-control-card.component';
 import { TextCardComponent } from '../cards/text-card/text-card.component';
-import { Light } from '../models/light';
-import { Widget } from '../models/widget';
 
 @Injectable({
   providedIn: 'root'

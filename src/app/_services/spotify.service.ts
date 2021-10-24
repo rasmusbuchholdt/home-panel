@@ -3,9 +3,9 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
-import { SpotifyDevice } from '../models/spotify-device';
-import { SpotifyPlayback } from '../models/spotify-playback';
-import { SpotifyUser } from '../models/spotify-user';
+import { SpotifyDevice } from '../_models/spotify-device';
+import { SpotifyPlayback } from '../_models/spotify-playback';
+import { SpotifyUser } from '../_models/spotify-user';
 
 @Injectable({
   providedIn: 'root'

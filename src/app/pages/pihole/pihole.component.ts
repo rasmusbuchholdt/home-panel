@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { take } from 'rxjs/operators';
-import { PiholeStat } from 'src/app/models/pihole-stat';
-import { PiholeService } from 'src/app/services/pihole.service';
+import { PiholeStat } from 'src/app/_models/pihole-stat';
+import { PiholeService } from 'src/app/_services/pihole.service';
 
 @Component({
   selector: 'app-pihole',
   templateUrl: './pihole.component.html',
   styleUrls: ['./pihole.component.scss']
 })
-export class PiholeComponent implements OnInit {
+export class PiholeComponent implements OnInit, OnDestroy {
 
   stats: PiholeStat[] = [];
   isDesktop = false;

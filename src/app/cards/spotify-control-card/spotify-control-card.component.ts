@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { delay, take, tap } from 'rxjs/operators';
-import { SpotifyDevice } from 'src/app/models/spotify-device';
-import { SpotifyService } from 'src/app/services/spotify.service';
+import { SpotifyDevice } from 'src/app/_models/spotify-device';
+import { SpotifyService } from 'src/app/_services/spotify.service';
 
 @Component({
   selector: 'app-spotify-control-card',

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { take } from 'rxjs/operators';
-import { SpotifyUser } from 'src/app/models/spotify-user';
+import { SpotifyUser } from 'src/app/_models/spotify-user';
 
-import { SpotifyService } from '../../services/spotify.service';
+import { SpotifyService } from '../../_services/spotify.service';
 
 @Component({
   selector: 'app-spotify',

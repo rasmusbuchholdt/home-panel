@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
-import { TextData } from '../../models/text-data';
+import { TextData } from '../../_models/text-data';
 
 @Component({
   selector: 'app-text-card-dialog',

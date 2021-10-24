@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
-import { PiholeSummary } from '../models/pihole-summary';
+import { PiholeSummary } from '../_models/pihole-summary';
 
 @Injectable({
   providedIn: 'root'

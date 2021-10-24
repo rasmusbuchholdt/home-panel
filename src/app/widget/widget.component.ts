@@ -1,7 +1,7 @@
 import { Component, ComponentRef, Input, OnInit } from '@angular/core';
 import { take } from 'rxjs/operators';
 
-import { LightService } from '../services/light.service';
+import { LightService } from '../_services/light.service';
 
 @Component({
   selector: 'app-widget',

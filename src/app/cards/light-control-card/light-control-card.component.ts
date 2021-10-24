@@ -1,13 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { delay, take, tap } from 'rxjs/operators';
+import { Light } from 'src/app/_models/light';
+import { LightConfig } from 'src/app/_models/light-config';
+import { LightService } from 'src/app/_services/light.service';
 import { normalize } from 'src/app/_utils/normalize';
 import {
   LightConfigDialogComponent,
 } from 'src/app/dialogs/light-config-dialog/light-config-dialog.component';
-import { Light } from 'src/app/models/light';
-import { LightConfig } from 'src/app/models/light-config';
-import { LightService } from 'src/app/services/light.service';
 
 const LIGHT_REFRESH_DELAY_IN_SECONS = 10;
 

@@ -9,14 +9,14 @@ import {
 } from 'angular-gridster2';
 import { take } from 'rxjs/operators';
 
+import { TextData } from '../_models/text-data';
+import { Widget } from '../_models/widget';
+import { DashboardService } from '../_services/dashboard.service';
+import { LightService } from '../_services/light.service';
+import { WidgetService } from '../_services/widget.service';
 import {
   TextCardDialogComponent,
 } from '../dialogs/text-card-dialog/text-card-dialog.component';
-import { TextData } from '../models/text-data';
-import { Widget } from '../models/widget';
-import { DashboardService } from '../services/dashboard.service';
-import { LightService } from '../services/light.service';
-import { WidgetService } from '../services/widget.service';
 
 @Component({
   selector: 'app-gridster',

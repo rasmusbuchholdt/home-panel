@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { take } from 'rxjs/operators';
-import { MovieModeService } from 'src/app/services/movie-mode.service';
+import { MovieModeService } from 'src/app/_services/movie-mode.service';
 
 @Component({
   selector: 'app-movie-mode-card',
