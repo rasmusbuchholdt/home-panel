@@ -4,7 +4,7 @@
     <app-light-control-card [light]="light"></app-light-control-card>
   </div>
   <div class="button-group">
-    <a mat-flat-button color="primary" (click)="enableAll()">Enable All</a>
-    <a mat-flat-button color="primary" (click)="disableAll()">Disable All</a>
+    <a mat-flat-button color="primary" (click)="toggleAll(true)">Enable All</a>
+    <a mat-flat-button color="primary" (click)="toggleAll(false)">Disable All</a>
   </div>
 </div>

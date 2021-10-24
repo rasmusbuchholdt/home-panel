@@ -24,27 +24,20 @@ export class LightsComponent implements OnInit {
     });
   }
 
-  enableAll(): void {
-    this.lightService.getLights().pipe(take(1)).subscribe(lights => {
-      lights.forEach(light => {
-        if (!light.state.on && light.state.reachable) {
-          this.lightService.toggleLight(light.id).pipe(take(1)).subscribe();
-          light.state.on = true;
-        }
-      });
-      this.lights = lights;
-    });
+  async toggleAll(targetState: boolean): Promise<void> {
+    // We need to get the fresh data every time in case somebody turned it off on the switch
+    const lights = await this.lightService.getLights().toPromise();
+    await Promise.all(lights.map(light => this.toggleLight(light, targetState)));
+    this.lights = lights;
   }
 
-  disableAll(): void {
-    this.lightService.getLights().pipe(take(1)).subscribe(lights => {
-      lights.forEach(light => {
-        if (light.state.on && light.state.reachable) {
-          this.lightService.toggleLight(light.id).pipe(take(1)).subscribe();
-          light.state.on = false;
-        }
+  private toggleLight(light: Light, targetState: boolean): Promise<boolean> {
+    return new Promise<boolean>((resolve) => {
+      if (light.state.on === targetState && !light.state.reachable) resolve(false);
+      this.lightService.toggleLight(light.id).pipe(take(1)).subscribe(() => {
+        light.state.on = targetState;
+        resolve(true);
       });
-      this.lights = lights;
     });
   }
 }
