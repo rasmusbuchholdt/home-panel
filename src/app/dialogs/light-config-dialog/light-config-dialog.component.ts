@@ -16,7 +16,9 @@ export class LightConfigDialogComponent implements OnInit {
     (
       public dialogRef: MatDialogRef<LightConfigDialogComponent>,
       @Inject(MAT_DIALOG_DATA) public data: LightConfig
-    ) { }
+    ) {
+      this.selectedColor = `rgb(${data.rgb.R}, ${data.rgb.G}, ${data.rgb.B})`
+    }
 
   ngOnInit() { }
 

@@ -72,12 +72,13 @@ export class LightControlCardComponent implements OnInit {
 
   editLight() {
     if (!this.light) return;
+    const rgb = xyBriToRgb(this.xy[0], this.xy[1], this.brightness);
     const dialogRef = this.dialog.open(LightConfigDialogComponent, {
       width: '250px',
       data: {
         id: this.light.id,
         enabled: this.isOn,
-        rgb: { R: 0, G: 0, B: 0, change: false },
+        rgb: { R: rgb.R, G: rgb.G, B: rgb.B, change: false },
         saturation: this.saturation,
         brightness: this.brightness,
       } as LightConfig
@@ -85,8 +86,7 @@ export class LightControlCardComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result: LightConfig) => {
       if (result && this.light) {
         this.lightService.setLight(result).pipe(take(1)).subscribe();
-        this.brightness = result.brightness;
-        this.saturation = result.saturation;
+        this.refreshLightState();
       }
     });
   }
