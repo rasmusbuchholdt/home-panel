@@ -4,6 +4,7 @@ import { delay, take, tap } from 'rxjs/operators';
 import { Light } from 'src/app/_models/light';
 import { LightConfig } from 'src/app/_models/light-config';
 import { LightService } from 'src/app/_services/light.service';
+import { xyBriToRgb } from 'src/app/_utils/color-conversions';
 import { normalize } from 'src/app/_utils/normalize';
 import {
   LightConfigDialogComponent,
@@ -25,6 +26,7 @@ export class LightControlCardComponent implements OnInit {
   brightness = 0;
   saturation = 0;
   svgColor = "#c0c0c0";
+  xy = [0, 0];
 
   constructor(
     private lightService: LightService,
@@ -42,6 +44,10 @@ export class LightControlCardComponent implements OnInit {
     this.status = `The switch is ${light.state.reachable ? 'on' : 'off'}`;
     this.saturation = normalize(light.state.sat, 1, 254);
     this.brightness = normalize(light.state.bri, 1, 254);
+    this.xy = light.state.xy;
+
+    const rgb = xyBriToRgb(light.state.xy[0], light.state.xy[1], light.state.bri);
+    this.svgColor = this.isOn ? `rgb(${rgb.R}, ${rgb.G}, ${rgb.B})` : "#c0c0c0";
 
     setTimeout(() => {
       this.refreshLightState();
