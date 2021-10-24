@@ -28,7 +28,6 @@ export class LightsComponent implements OnInit {
     // We need to get the fresh data every time in case somebody turned it off on the switch
     const lights = await this.lightService.getLights().toPromise();
     lights.map(light => this.toggleLight(light, targetState));
-    // this.lights = lights;
   }
 
   private toggleLight(light: Light, targetState: boolean): void {
