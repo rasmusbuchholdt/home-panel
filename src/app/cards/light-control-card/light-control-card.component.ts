@@ -24,6 +24,7 @@ export class LightControlCardComponent implements OnInit {
   status = "Getting status";
   brightness = 0;
   saturation = 0;
+  svgColor = "#c0c0c0";
 
   constructor(
     private lightService: LightService,
