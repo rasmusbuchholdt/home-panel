@@ -108,5 +108,7 @@
       }
     }
   },
-  "defaultProject": "home-panel"
+  "cli": {
+    "analytics": false
+  }
 }
